@@ -128,7 +128,6 @@ export const postTaskActivity = async (req, res) => {
 export const dashboardStatistics = async (req, res) => {
   try {
     const { userId, isAdmin } = req.user;
-    console.log(isAdmin);
     const allTasks = isAdmin
       ? await Task.find({
           isTrashed: false,
