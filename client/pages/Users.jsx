@@ -23,7 +23,7 @@ const Users = () => {
   const [openAction, setOpenAction] = useState(false);
   const [selected, setSelected] = useState(null);
 
-  const { data, isLoading, refetch } = useGetTeamListQuery();
+  const { data, refetch } = useGetTeamListQuery();
 
   // console.log(error, data);
   const [deleteUser] = useDeleteUserMutation();
@@ -144,7 +144,7 @@ const Users = () => {
           <Button
             label="Add New User"
             icon={<IoMdAdd className="text-lg" />}
-            className="flex flex-row-reverse gap-1 items-center bg-blue-600 text-white rounded-lg"
+            className="flex flex-row-reverse gap-1 items-center bg-[#fabb18] hover:bg-yellow-500 text-black rounded-lg"
             onClick={() => setOpen(true)}
           />
         </div>

@@ -51,7 +51,7 @@ const Login = () => {
             <span className="flex gap-1 py-1 px-3 border rounded-full text-sm md:text-base border-gray-300 text-gray-600">
               Manage all your task in one place!
             </span>
-            <p className="flex flex-col md:gap-4 text-4xl md:text-6xl 2xl:text-7xl font-black text-center text-blue-700">
+            <p className="flex flex-col md:gap-4 text-4xl md:text-6xl 2xl:text-7xl font-black text-center text-black">
               <span>Cloud-Based</span>
               <span>Task Manager</span>
             </p>
@@ -68,7 +68,7 @@ const Login = () => {
             className="form-container w-full md:w-[400px] flex flex-col gap-y-8 bg-white px-10 py-14"
           >
             <div>
-              <p className="text-blue-600 text-3xl font-bold text-center">
+              <p className="text-black text-3xl font-bold text-center">
                 Welcome Back!
               </p>
               <p className="text-center text-base text-gray-700">

@@ -16,13 +16,7 @@ const PORT = process.env.PORT || 5000;
 
 const app = express();
 
-app.use(
-  cors({
-    origin: ["https://task-manager-client-virid.vercel.app"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
