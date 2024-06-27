@@ -18,7 +18,10 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["https://task-manager-client-virid.vercel.app"],
+    origin: [
+      "http://localhost:3000",
+      "https://task-manager-client-virid.vercel.app",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })

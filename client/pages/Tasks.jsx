@@ -81,7 +81,7 @@ const Tasks = () => {
             <BoardView />
           ) : (
             <div className="w-full ">
-              <Table tasks={data?.tasks} />
+              <Table />
             </div>
           )}
         </Tabs>

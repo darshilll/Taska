@@ -95,7 +95,8 @@ const TaskTable = ({ tasks }) => {
   );
 };
 
-const UserTable = ({ users }) => {
+const UserTable = () => {
+  const { data, isLoading } = useGetDashboardStatsQuery();
   const TableHeader = () => (
     <thead className="border-b border-gray-300">
       <tr className="text-black text-left">
@@ -138,7 +139,7 @@ const UserTable = ({ users }) => {
       <table className="w-full mb-5">
         <TableHeader />
         <tbody>
-          {users?.map((user, index) => (
+          {data?.users?.map((user, index) => (
             <TableRow key={index + user?._id} user={user} />
           ))}
         </tbody>
@@ -236,7 +237,7 @@ const Dashboard = () => {
         <TaskTable tasks={data?.last10Task} />
 
         {/* right */}
-        <UserTable users={data?.users} />
+        <UserTable />
       </div>
     </div>
   );
