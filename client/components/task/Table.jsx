@@ -26,11 +26,17 @@ const ICONS = {
   low: <MdKeyboardArrowDown />,
 };
 
-const Table = ({ tasks }) => {
+const Table = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const [selected, setSelected] = useState(null);
   const [openEdit, setOpenEdit] = useState(false);
   const [trashTask] = useTrashTaskMutation();
+
+  const { data } = useGetAllTasksQuery({
+    strQuery: status,
+    isTrashed: "",
+    search: "",
+  });
 
   const deleteClicks = (id) => {
     setSelected(id);
@@ -160,7 +166,7 @@ const Table = ({ tasks }) => {
           <table className="w-full">
             <TableHeader />
             <tbody>
-              {tasks.map((task, index) => (
+              {data?.tasks.map((task, index) => (
                 <TableRow key={index} task={task} />
               ))}
             </tbody>

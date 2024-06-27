@@ -78,7 +78,7 @@ const Tasks = () => {
           )}
 
           {selected !== 1 ? (
-            <BoardView tasks={data?.tasks} />
+            <BoardView />
           ) : (
             <div className="w-full ">
               <Table tasks={data?.tasks} />
