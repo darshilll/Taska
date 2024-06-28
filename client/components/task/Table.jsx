@@ -4,7 +4,6 @@
 import clsx from "clsx";
 import { useState } from "react";
 import { BiMessageAltDetail } from "react-icons/bi";
-
 import {
   MdKeyboardArrowDown,
   MdKeyboardArrowUp,
@@ -22,6 +21,7 @@ import {
   useTrashTaskMutation,
 } from "../../redux/slices/taskApiSlice";
 import AddTask from "./AddTask";
+import { useParams } from "react-router-dom";
 
 const ICONS = {
   high: <MdKeyboardDoubleArrowUp />,
@@ -30,10 +30,13 @@ const ICONS = {
 };
 
 const Table = () => {
+  const params = useParams();
   const [openDialog, setOpenDialog] = useState(false);
   const [selected, setSelected] = useState(null);
   const [openEdit, setOpenEdit] = useState(false);
   const [trashTask] = useTrashTaskMutation();
+
+  const status = params?.status || "";
 
   const { data } = useGetAllTasksQuery({
     strQuery: status,

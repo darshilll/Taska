@@ -97,12 +97,12 @@ const TaskDetails = () => {
 
   return (
     <div className="w-full flex flex-col gap-3 mb-4 overflow-y-hidden">
-      <h1 className="text-2xl text-gray-600 font-bold">{task?.title}</h1>
+      <h1 className="text-2xl font-extrabold uppercase">{task?.title}</h1>
       <Tabs tabs={TABS} setSelected={setSelected}>
         {selected === 0 ? (
           <>
-            <div className="w-full flex flex-col md:flex-row gap-5 2xl:gap-8 bg-white shadow-md p-8 overflow-y-auto">
-              <div className="w-full md:w-1/2 space-y-8">
+            <div className="w-full flex flex-col md:flex-row gap-5 2xl:gap-8 shadow-md p-8 overflow-y-auto">
+              <div className="w-full md:w-1/2 space-y-6">
                 {/* LEFT */}
                 <div className="flex items-center gap-5">
                   <div
@@ -126,33 +126,31 @@ const TaskDetails = () => {
                     <span className="text-black uppercase">{task?.stage}</span>
                   </div>
                 </div>
-                <p className="text-gray-500">
+                <p className="text-gray-700">
                   Created At: {new Date(task?.date).toDateString()}
                 </p>
-                <div className="flex items-center gap-8 p-4 border-y border-gray-200">
+                <div className="flex items-center gap-8 p-4 border-y border-gray-300">
                   <div className="space-x-2">
-                    <span className="font-semibold">Assets: </span>
+                    <span className="font-bold">Assets: </span>
                     <span>{task?.assets?.length}</span>
                   </div>
-                  <span className="text-gray-400">|</span>
+                  <span className="text-gray-500">|</span>
                   <div className="space-x-2">
-                    <span className="font-semibold">Sub-Task :</span>
+                    <span className="font-bold">Sub-Task :</span>
                     <span>{task?.subTasks?.length}</span>
                   </div>
                 </div>
 
                 <div className="space-y-4 py-6">
-                  <p className="text-gray-600 font-semibold text-sm">
-                    TASK TEAM
-                  </p>
+                  <p className="text-gray-700 font-bold text-sm">TASK TEAM</p>
                   <div className="space-y-3">
                     {task?.team?.map((m, index) => (
                       <div
                         key={index}
-                        className="flex gap-4 py-2 items-center border-t border-gray-200"
+                        className="flex gap-4 py-2 items-center border-t border-gray-300"
                       >
-                        <div className="w-10 h-10 rounded-full text-white flex items-center justify-center text-sm -mr-1 bg-blue-600">
-                          <span className="text-center">
+                        <div className="w-10 h-10 rounded-full text-white flex items-center justify-center text-sm -mr-1 bg-[#fabb18]">
+                          <span className="text-center font-bold">
                             {getInitials(m?.name)}
                           </span>
                         </div>
@@ -166,9 +164,7 @@ const TaskDetails = () => {
                 </div>
 
                 <div className="space-y-4 py-6">
-                  <p className="text-gray-600 font-semibold text-sm">
-                    SUB-TASKS
-                  </p>
+                  <p className="text-gray-700 font-bold text-sm">SUB-TASKS</p>
                   <div className="space-y-8">
                     {task?.subTasks?.map((el, index) => (
                       <div key={index} className="flex gap-3">

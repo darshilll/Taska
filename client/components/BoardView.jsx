@@ -1,8 +1,12 @@
 /* eslint-disable react/prop-types */
+import { useParams } from "react-router-dom";
 import { useGetAllTasksQuery } from "../redux/slices/taskApiSlice";
 import TaskCard from "./TaskCard";
 
 const BoardView = () => {
+  const params = useParams();
+
+  const status = params?.status || "";
   const { data } = useGetAllTasksQuery({
     strQuery: status,
     isTrashed: "",

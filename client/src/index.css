@@ -11,6 +11,10 @@
   font-family: "Roboto", sans-serif;
 }
 
+body {
+  background-color: #fffff0;
+}
+
 .cell {
   display: inline-block;
   width: 49%;

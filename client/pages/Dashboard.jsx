@@ -225,8 +225,8 @@ const Dashboard = () => {
           <Card key={index} icon={icon} bg={bg} label={label} count={total} />
         ))}
       </div>
-      <div className="w-full bg-white my-12 rounded shadow-sm">
-        <h4 className="text-xl font-semibold p-4 uppercase">
+      <div className="w-full bg-[#f8f7f4] my-12 rounded shadow-sm">
+        <h4 className="text-xl font-semibold p-4 uppercase ">
           Chart by Priority
         </h4>
         <Chart data={data?.graphData} />

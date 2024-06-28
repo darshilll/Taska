@@ -51,7 +51,7 @@ const Activities = ({ activity, id, refetch }) => {
         <div className="flex flex-col gap-y-1 mb-8">
           <p className="font-semibold">{item?.by?.name}</p>
           <div className=" text-gray-500 space-y-2">
-            <span className="capitalize">{item?.type}</span>
+            <span className="capitalize">{item?.type} </span>
             <span className="text-sm">{moment(item?.date).fromNow()}</span>
           </div>
           <p className=" text-gray-700">{item?.activity}</p>
@@ -61,11 +61,9 @@ const Activities = ({ activity, id, refetch }) => {
   };
 
   return (
-    <div className="w-full flex gap-10 2xl:gap-20 min-h-screen px-10 py-8 bg-white shadow-md rounded-md justify-between overflow-y-auto">
+    <div className="w-full flex gap-10 2xl:gap-20 min-h-screen px-3 py-8 shadow-md rounded-md justify-between overflow-y-auto">
       <div className="w-full md:w-1/2">
-        <h4 className=" text-gray-600 font-semibold text-lg mb-5">
-          Activities
-        </h4>
+        <h4 className="font-bold text-lg mb-5 uppercase">Activities</h4>
         <div className="w-full">
           {activity?.map((el, index) => (
             <Card
@@ -77,12 +75,10 @@ const Activities = ({ activity, id, refetch }) => {
         </div>
       </div>
       <div
-        className="w-full md:w1/3
+        className="w-full md:w-1/3
       "
       >
-        <h4 className=" text-gray-600 font-semibold text-lg mb-5">
-          Add Activity
-        </h4>
+        <h4 className="  font-bold text-lg mb-5">Add Activity</h4>
         <div className="w-full flex flex-wrap gap-5">
           {act_types.map((item, index) => (
             <div key={item} className="flex gap-2 items-center">
@@ -109,7 +105,7 @@ const Activities = ({ activity, id, refetch }) => {
               type="button"
               label="Submit"
               onClick={handleSubmit}
-              className="bg-blue-600 text-white rounded"
+              className="bg-black font-bold text-white rounded-md"
             ></Button>
           )}
         </div>
