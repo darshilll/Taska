@@ -14,7 +14,6 @@ import { RxActivityLog } from "react-icons/rx";
 import { useParams } from "react-router-dom";
 import { FaBug, FaTasks, FaThumbsUp, FaUser } from "react-icons/fa";
 import { useState } from "react";
-import { tasks } from "../src/assets/data";
 import Tabs from "../components/Tabs";
 import clsx from "clsx";
 import { PRIOTITYSTYELS, TASK_TYPE, getInitials } from "../utils";
