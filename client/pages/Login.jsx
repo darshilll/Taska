@@ -43,17 +43,17 @@ const Login = () => {
   }, [user]);
 
   return (
-    <div className="w-full min-h-screen flex items-center justify-center flex-col lg:flex-row bg-[#f3f4f6]">
+    <div className="w-full min-h-screen flex items-center justify-center flex-col lg:flex-row bg-gradient-to-t from-[#9FA5D5] to-[#E8F5C8]">
       <div className="md:w-auto flex gap-0 md:gap-40 flex-col md:flex-row items-center justify-center">
         {/* left side */}
         <div className="w-full lg:w-2/3 flex flex-col">
-          <div className="md:max-w-lg 2xl:max-w-3xl flex flex-col items-center  gap-5 md:gap-y-10 2xl:-mt-20">
-            <span className="flex gap-1 py-1 px-3 border rounded-full text-sm md:text-base border-gray-300 text-gray-600">
+          <div className="md:max-w-lg 2xl:max-w-3xl flex flex-col items-center gap-5 md:gap-y-10 2xl:-mt-20">
+            <span className="flex gap-1 py-1 px-3 border rounded-full text-sm md:text-base text-gray-700">
               Manage all your task in one place!
             </span>
-            <p className="flex flex-col md:gap-4 text-4xl md:text-6xl 2xl:text-7xl font-black text-center text-black">
-              <span>Cloud-Based</span>
-              <span>Task Manager</span>
+            <p className="flex flex-col md:gap-4 text-4xl md:text-6xl 2xl:text-6xl font-black text-center text-gray-900 select-none">
+              <span>Your workflow, Elevated</span>
+              <span className="-mt-2">Manage with us</span>
             </p>
 
             <div className="cell">
@@ -65,14 +65,14 @@ const Login = () => {
         <div className="md:1/3 p-4 md:p-1 flex flex-col justify-center items-center">
           <form
             onSubmit={handleSubmit(submitHandler)}
-            className="form-container w-full md:w-[400px] flex flex-col gap-y-8 bg-white px-10 py-14"
+            className="form-container w-full md:w-[400px] flex flex-col gap-y-8 bg-gradient-to-b from-[#f3e9e8] to-[#96b9d9] px-10 py-14"
           >
             <div>
-              <p className="text-black text-3xl font-bold text-center">
+              <p className="text-black text-3xl font-bold text-center tracking-wide">
                 Welcome Back!
               </p>
               <p className="text-center text-base text-gray-700">
-                Keep all your credential safge.
+                Keep all your credential safe.
               </p>
             </div>
 
@@ -100,7 +100,7 @@ const Login = () => {
                 error={errors.password ? errors.password.message : ""}
               />
 
-              <span className="text-sm text-gray-600 hover:text-blue-600 hover:underline cursor-pointer">
+              <span className="text-sm text-gray-700 hover:text-blue-600 hover:underline cursor-pointer">
                 Forget Password?
               </span>
 
@@ -110,7 +110,7 @@ const Login = () => {
                 <Button
                   type="submit"
                   label="Login"
-                  className="w-full h-10 bg-blue-700 text-white rounded-full"
+                  className="w-full h-10 bg-black text-white rounded-full font-bold hover:bg-[#6cc6cb]"
                 />
               )}
             </div>
