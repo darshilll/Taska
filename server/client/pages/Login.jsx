@@ -51,9 +51,9 @@ const Login = () => {
             <span className="flex gap-1 py-1 px-3 border rounded-full text-sm md:text-base text-gray-700">
               Manage all your task in one place!
             </span>
-            <p className="flex flex-col md:gap-4 text-4xl md:text-6xl 2xl:text-6xl font-black text-center text-gray-900 select-none">
-              <span>Your workflow, Elevated</span>
-              <span className="-mt-2">Manage with us</span>
+            <p className="flex flex-col md:gap-4 text-4xl md:text-6xl 2xl:text-6xl font-black text-center text-black select-none">
+              <span>Your digital </span>
+              <span className="">task assistant</span>
             </p>
 
             <div className="cell">
@@ -65,20 +65,25 @@ const Login = () => {
         <div className="md:1/3 p-4 md:p-1 flex flex-col justify-center items-center">
           <form
             onSubmit={handleSubmit(submitHandler)}
-            className="form-container w-full md:w-[400px] flex flex-col gap-y-8 bg-gradient-to-b from-[#f3e9e8] to-[#96b9d9] px-10 py-14"
+            className="form-container w-full md:w-[400px] flex flex-col gap-y-8 bg-[#fdf4e5] px-10 py-14"
           >
             <div>
-              <p className="text-black text-3xl font-bold text-center tracking-wide">
-                Welcome Back!
+              <img
+                src="../public/assets/images/taska2.png"
+                alt="taska"
+                className="-mt-10"
+              />
+              <p className="text-gray-800 text-2xl  text-center tracking-wide -mt-2">
+                Welcome back!
               </p>
-              <p className="text-center text-base text-gray-700">
+              <p className="text-center text-base text-gray-600">
                 Keep all your credential safe.
               </p>
             </div>
 
             <div className="flex flex-col gap-y-5">
               <Textbox
-                placeholder="email@example.com"
+                placeholder="email"
                 type="email"
                 name="email"
                 label="Email Address"
@@ -110,7 +115,7 @@ const Login = () => {
                 <Button
                   type="submit"
                   label="Login"
-                  className="w-full h-10 bg-black text-white rounded-full font-bold hover:bg-[#6cc6cb]"
+                  className="w-full h-10 bg-black text-white rounded-full font-bold hover:bg-gray-800"
                 />
               )}
             </div>
