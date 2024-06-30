@@ -16,6 +16,7 @@ const PORT = process.env.PORT || 5000;
 
 const app = express();
 
+app.use(cookieParser());
 app.use(
   cors({
     origin: [
@@ -30,7 +31,6 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(cookieParser());
 app.use(morgan("dev"));
 app.use("/api", routes);
 
