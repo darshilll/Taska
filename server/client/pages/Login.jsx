@@ -29,7 +29,6 @@ const Login = () => {
   const submitHandler = async (data) => {
     try {
       const result = await login(data).unwrap();
-
       dispatch(setCredentials(result));
       navigate("/");
     } catch (error) {
@@ -69,7 +68,7 @@ const Login = () => {
           >
             <div>
               <img
-                src="../public/assets/images/taska2.png"
+                src="/assets/images/taska2.png"
                 alt="taska"
                 className="-mt-10"
               />

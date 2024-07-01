@@ -23,7 +23,7 @@ const app = express();
 app.use(cookieParser());
 // app.use(
 //   cors({
-//     origin: ["http://localhost:3000"],
+//     origin: ["http://localhost:8800"],
 //     methods: ["GET", "POST", "PUT", "DELETE"],
 //     credentials: true,
 //   })

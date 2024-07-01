@@ -75,6 +75,7 @@ export const loginUser = async (req, res) => {
       });
     }
   } catch (error) {
+    console.log(error);
     return res.status(400).json({ status: false, message: error.message });
   }
 };
