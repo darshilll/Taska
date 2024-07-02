@@ -13,7 +13,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="flex justify-between items-center bg-[#fcfcf7] px-4 py-3 2xl:py-4 sticky z-10 top-0">
+    <div className="flex justify-between items-center  px-4 py-3 2xl:py-4 sticky z-50 top-0 bg-white">
       <div className="flex gap-4">
         <button
           className="text-2xl text-gray-500 block md:hidden"
@@ -22,10 +22,9 @@ const Navbar = () => {
           <BsLayoutThreeColumns />
         </button>
       </div>
-      <div className="flex 2xl:gap-24 gap-2 items-center">
-        <UserAvatar user={user} />
-
+      <div className="flex 2xl:gap-6 gap-2 items-center">
         <NotificationPanel />
+        <UserAvatar user={user} />
       </div>
     </div>
   );

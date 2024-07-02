@@ -16,8 +16,10 @@ import {
   useDuplicateTaskMutation,
   useTrashTaskMutation,
 } from "../../redux/slices/taskApiSlice";
+import { useSelector } from "react-redux";
 
 const TaskDialog = ({ task }) => {
+  const { user } = useSelector((state) => state.auth);
   const [open, setOpen] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
@@ -74,13 +76,18 @@ const TaskDialog = ({ task }) => {
     },
     {
       label: "Edit",
-      icon: <MdOutlineEdit className="mr-2 h-5 w-5" aria-hidden="true" />,
-      onClick: () => setOpenEdit(true),
+      icon: (
+        <MdOutlineEdit
+          className="mr-2 h-5 w-5 disabled:cursor-not-allowed"
+          aria-hidden="true"
+        />
+      ),
+      onClick: () => (user.isAdmin ? setOpenEdit(true) : setOpenEdit(false)),
     },
     {
       label: "Add Sub-Task",
       icon: <MdAdd className="mr-2 h-5 w-5" aria-hidden="true" />,
-      onClick: () => setOpen(true),
+      onClick: () => (user.isAdmin ? setOpenEdit(true) : setOpen(false)),
     },
     {
       label: "Duplicate",

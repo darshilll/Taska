@@ -16,6 +16,7 @@ import { setOpenSidebar } from "../redux/slices/authSlice";
 import { Transition } from "@headlessui/react";
 import clsx from "clsx";
 import { IoClose } from "react-icons/io5";
+import Signup from "../pages/Signup";
 
 function Layout() {
   const { user } = useSelector((state) => state.auth);
@@ -23,14 +24,14 @@ function Layout() {
   const location = useLocation();
 
   return user ? (
-    <div className="w-full h-screen flex flex-col md:flex-row">
-      <div className="w-1/5 h-screen bg-[#fffff0] sticky top-0 hidden md:block">
+    <div className="w-full h-screen flex flex-col md:flex-row bg-white">
+      <div className="w-30 h-screen bg-black sticky top-0 hidden md:block overscroll-none">
         <Sidebar />
       </div>
       <MobileSidebar />
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto ">
         <Navbar />
-        <div className="p-4 2xl:px-10 bg-[#fcfcf7]">
+        <div className="p-4 2xl:px-10 ">
           <Outlet />
         </div>
       </div>
@@ -96,6 +97,7 @@ const App = () => {
       <Routes>
         <Route element={<Layout />}>
           <Route index path="/" element={<Navigate to="/dashboard" />} />
+
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/tasks" element={<Tasks />} />
           <Route path="/completed/:status" element={<Tasks />} />
@@ -106,6 +108,7 @@ const App = () => {
           <Route path="/task/:id" element={<TaskDetails />} />
         </Route>
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
 
       <Toaster richColours />

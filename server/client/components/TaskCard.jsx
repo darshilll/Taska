@@ -24,9 +24,9 @@ const ICONS = {
 };
 
 const TaskCard = ({ task }) => {
-  // console.log(task);
   const { user } = useSelector((state) => state.auth);
   const [open, setOpen] = useState(false);
+  // const hasTasks = task?.length > 0 || task?.length > 0;
 
   return (
     <>
@@ -43,8 +43,8 @@ const TaskCard = ({ task }) => {
               {task?.priority} Priority
             </span>
           </div>
-          {/* <TaskDialog task={task} /> */}
-          {user?.isAdmin && <TaskDialog task={task} />}
+          <TaskDialog task={task} />
+          {/* {user?.isAdmin && <TaskDialog task={task} />} */}
         </div>
 
         <>
@@ -123,7 +123,7 @@ const TaskCard = ({ task }) => {
           <button
             onClick={() => setOpen(true)}
             disabled={user.isAdmin ? false : true}
-            className="w-full flex gap-1 items-center text-sm font-bold  disabled:cursor-not-allowed disabled:text-gray-300 tracking-wide"
+            className="w-full flex gap-1 items-center text-sm font-bold  disabled:cursor-not-allowed disabled:text-gray-400 tracking-wide"
           >
             <IoMdAdd className="text-lg" />
             <span>ADD SUBTASK</span>

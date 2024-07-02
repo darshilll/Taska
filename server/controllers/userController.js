@@ -4,7 +4,7 @@ import { createJWT } from "../utils/index.js";
 
 export const registerUser = async (req, res) => {
   try {
-    const { name, email, password, isAdmin, role, title } = req.body;
+    const { name, email, password, title } = req.body;
 
     const userExist = await User.findOne({ email });
 
@@ -19,13 +19,12 @@ export const registerUser = async (req, res) => {
       name,
       email,
       password,
-      isAdmin,
-      role,
+
       title,
     });
 
     if (user) {
-      isAdmin ? createJWT(res, user._id) : null;
+      // isAdmin ? createJWT(res, user._id) : null;
 
       user.password = undefined;
 

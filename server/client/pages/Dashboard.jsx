@@ -62,7 +62,7 @@ const TaskTable = ({ tasks }) => {
             <div
               key={index}
               className={clsx(
-                "w-9 h-9 rounded-full text-black flex items-center justify-center text-sm font-bold -mr-1",
+                "w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold -mr-1",
                 BGS[index % BGS.length]
               )}
             >
@@ -81,7 +81,7 @@ const TaskTable = ({ tasks }) => {
 
   return (
     <>
-      <div className="w-full md:w-2/3 bg-white px-2 md:px-4 pt-4 pb-4  shadow-md rounded">
+      <div className="w-full bg-[#e2e1e1] px-2 md:px-4 pt-4 pb-4 shadow-md rounded-xl">
         <table className="w-full">
           <TableHeader />
           <tbody>
@@ -98,7 +98,7 @@ const TaskTable = ({ tasks }) => {
 const UserTable = () => {
   const { data, isLoading } = useGetDashboardStatsQuery();
   const TableHeader = () => (
-    <thead className="border-b border-gray-300">
+    <thead className="border-b border-gray-400">
       <tr className="text-black text-left">
         <th className="py-2">Full Name</th>
         <th className="py-2">Status</th>
@@ -107,10 +107,10 @@ const UserTable = () => {
     </thead>
   );
   const TableRow = ({ user }) => (
-    <tr className="border-b border-gray-300 text-gray-600 hover:bg-gray-300/15">
+    <tr className="border-b border-gray-400 text-gray-600 hover:bg-gray-300/15">
       <td className="py-2">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-full text-white flex items-center justify-center text-sm bg-red-500">
+          <div className="w-9 h-9 rounded-full text-white flex items-center justify-center text-sm bg-red-600">
             <span className="text-center font-bold">
               {getInitials(user?.name)}
             </span>
@@ -135,7 +135,7 @@ const UserTable = () => {
     </tr>
   );
   return (
-    <div className="w-full md:w-2/3 bg-white px-2 md:px-6 h-fit pb-4  shadow-md rounded">
+    <div className="w-full md:w-2/3 bg-[#e2e1e1] px-2 md:px-6 h-fit pb-4  shadow-md rounded-xl">
       <table className="w-full mb-5">
         <TableHeader />
         <tbody>
@@ -193,15 +193,15 @@ const Dashboard = () => {
 
   const Card = ({ label, count, bg, icon }) => {
     return (
-      <div className="w-full h-30 bg-[#fabb18] p-5 shadow-xl rounded-2xl flex items-center justify-between">
-        <div className="h-full flex flex-col justify-between text-black">
+      <div className="w-full h-30 bg-[#000000] p-7 shadow-md shadow-gray-500 rounded-3xl flex items-center justify-between">
+        <div className="h-full flex flex-col justify-between text-white">
           <p className="text-base font-bold">{label}</p>
           <span className="text-2xl font-semibold">{count}</span>
-          <span className="text-sm">{"11% last month"}</span>
+          <span className="text-sm text-gray-300">{"11% last month"}</span>
         </div>
         <div
           className={clsx(
-            "w-11 h-11 rounded-full flex items-center justify-center text-white",
+            "w-12 h-12 rounded-full flex items-center justify-center text-white",
             bg
           )}
         >
@@ -212,23 +212,31 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="h-full  text-black">
-      <p className="text-gray-500 text-[18px] 2xl:text-[28px] xl:text-[25px] md:[22px]  -mt-2 2xl:-mt-4">
-        Hello, {user?.name?.split(" ")[0]}!
-      </p>
-      <div className=" text-[20px] font-bold 2xl:text-[35px] 2xl:font-extrabold tracking-wide">
-        <p>You've got</p>
-        <p className="-mt-2 mb-2">{data?.totalTasks} tasks today 📝</p>
+    <main className="h-full w-full text-black">
+      <div className="flex mb-6 -mt-3 select-none">
+        <div className="flex rounded-3xl px-10 py-3  bg-[#e2e1e1]  w-full 2xl:w-full min-h-fit">
+          <p className="text-[18px] 2xl:text-[28px] xl:text-[25px] md:[22px]">
+            Hello, {user?.name?.split(" ")[0]}!
+            <span className=" text-[20px] font-bold 2xl:text-[35px] 2xl:font-extrabold ">
+              <p>You've got</p>
+              <p className="-mt-2 mb-2">{data?.totalTasks} tasks today 📝</p>
+            </span>
+          </p>
+          {/* <img
+            src="assets/images/image.png"
+            alt="person"
+            className=" max-w-xl relative z-20 bottom-10 left-1/2 h-44 w-64 object-fill hidden md:block"
+          /> */}
+        </div>
       </div>
+
       <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
         {stats.map(({ icon, bg, label, total }, index) => (
           <Card key={index} icon={icon} bg={bg} label={label} count={total} />
         ))}
       </div>
-      <div className="w-full bg-[#f8f7f4] my-12 rounded shadow-sm">
-        <h4 className="text-xl font-semibold p-4 uppercase ">
-          Chart by Priority
-        </h4>
+      <div className="w-full bg-[#dedcdcde] rounded-3xl my-10  shadow-sm">
+        <h4 className="text-2xl font-bold p-4 uppercase">Chart by Priority</h4>
         <Chart data={data?.graphData} />
       </div>
       <div className="w-full flex flex-col md:flex-row gap-4 2xl:gap-10 py-8">
@@ -237,9 +245,9 @@ const Dashboard = () => {
         <TaskTable tasks={data?.last10Task} />
 
         {/* right */}
-        <UserTable />
+        {user.isAdmin ? <UserTable /> : ""}
       </div>
-    </div>
+    </main>
   );
 };
 export default Dashboard;

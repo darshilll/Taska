@@ -38,15 +38,17 @@ const UserAvatar = () => {
       <div>
         <Menu as="div" className="relative inline-block text-left">
           <div className="flex gap-3">
-            <Menu.Button className="w-10 h-10 2xl:w-11 2xl:h-11 items-center justify-center rounded-full bg-black -mt-1 hover:bg-[#fabb18]">
-              <span className="text-white font-bold">
+            <div className="2xl:flex xl:flex flex-col -mt-1 hidden">
+              <span className="font-semibold text-xl">{user?.name}</span>
+              <span className="text-gray-400 -mt-1 text-right">
+                {user?.title}
+              </span>
+            </div>
+            <Menu.Button className="w-10 h-10 2xl:w-12 2xl:h-12 items-center justify-center rounded-full bg-black -mt-1 border-2 border-gray-400">
+              <span className="text-white font-bold text-md 2xl:text-lg">
                 {getInitials(user?.name)}
               </span>
             </Menu.Button>
-            <div className="2xl:flex xl:flex flex-col -mt-1 tracking-wide hidden">
-              <span className="font-bold text-[18px]">{user?.name}</span>
-              <span className="text-gray-500 -mt-1">{user?.title}</span>
-            </div>
           </div>
           <Transition
             as={Fragment}

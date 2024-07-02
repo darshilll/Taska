@@ -13,7 +13,7 @@ const userSchema = new Schema(
     },
     role: {
       type: String,
-      required: true,
+      default: "user",
     },
     email: {
       type: String,
@@ -26,7 +26,6 @@ const userSchema = new Schema(
     },
     isAdmin: {
       type: Boolean,
-      required: true,
       default: false,
     },
     tasks: [
@@ -37,7 +36,6 @@ const userSchema = new Schema(
     ],
     isActive: {
       type: Boolean,
-      required: true,
       default: true,
     },
   },

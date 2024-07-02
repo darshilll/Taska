@@ -14,39 +14,32 @@ import clsx from "clsx";
 
 const linkData = [
   {
-    label: "Dashboard",
     link: "dashboard",
-    icon: <MdDashboard size={20} />,
+    icon: <MdDashboard size={25} />,
   },
   {
-    label: "Tasks",
     link: "tasks",
-    icon: <FaTasks size={20} />,
+    icon: <FaTasks size={25} />,
   },
   {
-    label: "Completed",
     link: "completed/completed",
-    icon: <MdTaskAlt size={20} />,
+    icon: <MdTaskAlt size={25} />,
   },
   {
-    label: "In Progress",
     link: "in-progress/in progress",
-    icon: <MdOutlinePendingActions size={20} />,
+    icon: <MdOutlinePendingActions size={25} />,
   },
   {
-    label: "To Do",
     link: "todo/todo",
-    icon: <MdOutlinePendingActions size={20} />,
+    icon: <MdOutlinePendingActions size={25} />,
   },
   {
-    label: "Team",
     link: "team",
-    icon: <FaUsers size={20} />,
+    icon: <FaUsers size={25} />,
   },
   {
-    label: "Trash",
     link: "trashed",
-    icon: <FaTrashAlt size={20} />,
+    icon: <FaTrashAlt size={25} />,
   },
 ];
 
@@ -70,34 +63,27 @@ const Sidebar = () => {
         to={el.link}
         onClick={closeSidebar}
         className={clsx(
-          "w-full lg:3/4 flex gap-3 py-3.5 px-4 rounded-xl items-center text-gray-800 text-base",
+          "w-14 h-14 lg:3/4 flex gap-3  rounded-full items-center justify-center text-white text-base ",
           path === el.link.split("/")[0]
-            ? "bg-black text-neutral-100"
-            : "hover:bg-gray-300"
+            ? "bg-white text-neutral-950"
+            : "hover:bg-white hover:text-black"
         )}
       >
         {el.icon}
-        <span className="font-bold text-sm 2xl:text-lg xl:text-md">
+        {/* <span className="font-bold text-sm 2xl:text-lg xl:text-md">
           {el.label}
-        </span>
+        </span> */}
       </Link>
     );
   };
   return (
-    <main className="w-full h-full flex flex-col gap-6 p-5">
-      <div className="flex gap-2 items-center">
-        <span className="bg-yellow-400 p-2 rounded-full">
-          <MdOutlineAddTask
-            className="text-white text-2xl font-black"
-            size={30}
-          />
-        </span>
-        <span className="text-2xl font-extrabold text-black tracking-wider">
-          TaskVerse
-        </span>
+    <main className="w-full h-full flex flex-col gap-5 p-6 border-r-4 border-gray-500">
+      <div className=" ">
+        {/* <img src="assets/images/Tech T Symbol.jpeg" alt="taska" /> */}
+        <p className="text-white font-bold text-2xl text-center">taska</p>
       </div>
 
-      <div className="flex-1 flex flex-col gap-y-4 py-8">
+      <div className="flex-1 flex flex-col gap-y-4 py-8 -mt-8">
         {sidebarLinks.map((link) => (
           <NavLink el={link} key={link.label} />
         ))}

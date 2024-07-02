@@ -25,7 +25,7 @@ import { toast } from "sonner";
 import { dateFormatter } from "../../utils";
 
 const LISTS = ["TODO", "IN PROGRESS", "COMPLETED"];
-const PRIORITY = ["HIGH", "MEDIUM", "NORMAL", "LOW"];
+const PRIORITY = ["HIGH", "MEDIUM", "LOW"];
 
 const uploadedFileURLS = [];
 
