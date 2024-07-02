@@ -36,6 +36,10 @@ const AddUser = ({ open, setOpen, userData }) => {
         const result = await updateUser(data).unwrap();
 
         toast.success("Profile updated successfully");
+        setTimeout(() => {
+          setOpen(false);
+          window.location.reload();
+        }, 500);
 
         if (userData?._id === user > _id) {
           dispatch(setCredentials({ ...result.user }));
@@ -47,8 +51,10 @@ const AddUser = ({ open, setOpen, userData }) => {
         }).unwrap();
         toast.success("New user added successfully");
       }
+
       setTimeout(() => {
         setOpen(false);
+        window.location.reload();
       }, 500);
     } catch (error) {
       toast.error("Something went wrong");
@@ -121,13 +127,13 @@ const AddUser = ({ open, setOpen, userData }) => {
             <div className="py-3 mt-4 sm:flex sm:flex-row-reverse">
               <Button
                 type="submit"
-                className="bg-blue-600 px-8 rounded-md text-sm font-semibold text-white hover:bg-blue-700  sm:w-auto"
+                className="bg-black px-8 rounded-md text-sm font-semibold text-white hover:bg-gray-800 sm:w-auto"
                 label="Submit"
               />
 
               <Button
                 type="button"
-                className="bg-white px-5 text-sm font-semibold text-gray-900 sm:w-auto"
+                className=" px-5 text-sm font-semibold sm:w-auto"
                 onClick={() => setOpen(false)}
                 label="Cancel"
               />

@@ -146,7 +146,7 @@ const AddTask = ({ open, setOpen, task }) => {
               type="text"
               name="Title"
               label="Task Title"
-              className="w-full rounded"
+              className="w-full rounded bg-[#f8f8f8]"
               register={register("title", { required: "Title is required" })}
               error={errors.title ? errors.title.message : ""}
             />
@@ -166,7 +166,7 @@ const AddTask = ({ open, setOpen, task }) => {
                   type="Date"
                   name="date"
                   label="Task Date"
-                  className="w-full rounded"
+                  className="w-full rounded mt-7 bg-[#f8f8f8]"
                   register={register("date", {
                     required: "Date is required!",
                   })}
@@ -196,7 +196,7 @@ const AddTask = ({ open, setOpen, task }) => {
                     accept=".jpg, .png, .jpeg"
                     multiple={true}
                   />
-                  <span className="font-bold border border-gray-200 py-2 px-5 flex items-center justify-center gap-2">
+                  <span className="font-bold border border-gray-200 py-2 px-5 flex items-center bg-[#f8f8f8] justify-center gap-2">
                     <BiImages />
                     <span>Add Assets</span>
                   </span>
@@ -213,7 +213,7 @@ const AddTask = ({ open, setOpen, task }) => {
                 <Button
                   label="Submit"
                   type="Submit"
-                  className="bg-black px-8 text-sm font-semibold tracking-wide text-white hover:bg-[#fabb18] sm:w-auto rounded-md"
+                  className="bg-black px-8 text-sm font-semibold tracking-wide text-white hover:bg-gray-800 sm:w-auto rounded-md"
                 />
               )}
               <Button

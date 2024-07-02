@@ -30,7 +30,7 @@ const TaskCard = ({ task }) => {
 
   return (
     <>
-      <div className="w-full h-fit bg-white shadow-md p-4 rounded">
+      <div className="w-full h-fit bg-black text-white shadow-md p-4 rounded-xl">
         <div className="flex justify-between w-full">
           <div
             className={clsx(
@@ -52,27 +52,25 @@ const TaskCard = ({ task }) => {
             <div
               className={clsx("w-4 h-4 rounded-full", TASK_TYPE[task.stage])}
             />
-            <h4 className="line-clamp-1 text-black uppercase font-bold">
-              {task?.title}
-            </h4>
+            <h4 className="line-clamp-1 uppercase font-bold">{task?.title}</h4>
           </div>
-          <span className="text-sm text-gray-600">
+          <span className="text-sm text-gray-300">
             {formatDate(new Date(task?.date))}
           </span>
         </>
 
-        <div className="w-full border-t border-gray-200 my-2" />
+        <div className="w-full border-t border-gray-600 my-2" />
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-3">
-            <div className="flex gap-1 items-center text-sm text-gray-600">
+            <div className="flex gap-1 items-center text-sm text-gray-300">
               <BiMessageAltDetail />
               <span>{task?.activities?.length}</span>
             </div>
-            <div className="flex gap-1 items-center text-sm text-gray-600">
+            <div className="flex gap-1 items-center text-sm text-gray-300">
               <MdAttachFile />
               <span>{task?.assets?.length}</span>
             </div>
-            <div className="flex gap-1 items-center text-sm text-gray-600">
+            <div className="flex gap-1 items-center text-sm text-gray-300">
               <FaList />
               <span>{task?.subTasks?.length}</span>
             </div>
@@ -95,26 +93,26 @@ const TaskCard = ({ task }) => {
 
         {/* sub Tasks */}
         {task?.subTasks?.length > 0 ? (
-          <div className="py-4 border-t border-gray-200">
+          <div className="py-4 border-t border-gray-600">
             <div className="flex justify-between">
-              <h5 className="text-base line-clamp-1 text-black font-bold capitalize">
+              <h5 className="text-base line-clamp-1 text-white font-bold capitalize">
                 {task?.subTasks[0].title}
               </h5>
-              <span className="">
+              <span className="text-sm">
                 {formatDate(new Date(task?.subTasks[0]?.date))}
               </span>
             </div>
 
             <div className="py-3  -ml-1">
-              <span className="bg-blue-600/10 px-4 py-2 rounded-full text-blue-600 font-medium">
+              <span className="bg-[#b9bff8] px-4 py-2 rounded-full text-black font-medium">
                 {task?.subTasks[0].tag}
               </span>
             </div>
           </div>
         ) : (
           <>
-            <div className="py-3 border-t border-gray-200">
-              <span className="text-gray-500 ml-2">No Sub Task</span>
+            <div className="py-3 border-t border-gray-600">
+              <span className="text-gray-400 ml-2">No Sub Task</span>
             </div>
           </>
         )}

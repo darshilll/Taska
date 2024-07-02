@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import { Fragment, useEffect, useState } from "react";
 
@@ -33,7 +34,7 @@ const UserList = ({ team, setTeam }) => {
         multiple
       >
         <div className="relative mt-1">
-          <Listbox.Button className="relative w-full cursor-default rounded bg-white pl-3 pr-10 text-left px-3 py-2.5 2xl:py-3 border border-gray-300 sm:text-sm">
+          <Listbox.Button className="relative w-full cursor-default rounded bg-[#f8f8f8] pl-3 pr-10 text-left px-3 py-2.5 2xl:py-3 border border-gray-300 sm:text-sm">
             <span className="block truncate">
               {selectedUsers?.map((user) => user.name).join(", ")}
             </span>
@@ -52,7 +53,7 @@ const UserList = ({ team, setTeam }) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Listbox.Options className="z-50 absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white text-base shadow-lg ring-1 ring-black/5">
+            <Listbox.Options className="z-50 absolute mt-12 max-h-60 w-full overflow-auto rounded-md bg-white text-base shadow-lg ring-1 ring-black/5">
               {data?.map((user, index) => (
                 <Listbox.Option
                   key={index}
@@ -71,8 +72,8 @@ const UserList = ({ team, setTeam }) => {
                           selected ? "font-medium " : "font-normal"
                         )}
                       >
-                        <div className="w-7 h-7 rounded-full text-white flex items-center font-bold justify-center bg-[#fabb18]">
-                          <span className="text-center text-[10px]">
+                        <div className="w-8 h-8 rounded-full text-white flex items-center font-bold justify-center bg-black">
+                          <span className="text-center text-[12px]">
                             {getInitials(user.name)}
                           </span>
                         </div>

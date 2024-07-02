@@ -56,7 +56,7 @@ const Tasks = () => {
           <button
             onClick={() => setOpen(true)}
             disabled={user.isAdmin ? false : true}
-            className="flex flex-row-reverse gap-1 items-center bg-[#fabb18] text-black rounded-lg font-semibold hover:bg-yellow-400 p-3 2xl:py-2.5 disabled:cursor-not-allowed select-none"
+            className="flex flex-row-reverse gap-1 items-center bg-black text-white rounded-xl font-semibold hover:bg-gray-800 p-3 2xl:py-3 disabled:cursor-not-allowed select-none"
           >
             <IoMdAdd className="text-lg" />
             Create Task

@@ -92,20 +92,21 @@ const Users = () => {
   );
 
   const TableRow = ({ user }) => (
-    <tr className="border-b border-gray-200 text-gray-600 hover:bg-gray-400/10 ">
+    <tr className="border-b border-gray-200 text-gray-800 hover:bg-gray-400/10 ">
       <td className="p-2">
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-full text-white flex items-center justify-center text-sm bg-blue-700">
+        <div className="flex items-center gap-2 text-black">
+          <div className="w-10 h-10 rounded-full text-white flex items-center justify-center text-sm bg-black">
             <span className="text-xs md:text-sm text-center">
               {getInitials(user.name)}
             </span>
           </div>
+          {user.name}
         </div>
       </td>
 
-      <td className="p-2">{user.title}</td>
+      <td className="p-2 capitalize">{user.title}</td>
       <td className="p-2">{user.email || "user@gmail.com"}</td>
-      <td className="p-2">{user.role}</td>
+      <td className="p-2 capitalize">{user.role}</td>
 
       <td>
         <button
@@ -120,14 +121,14 @@ const Users = () => {
       </td>
       <td className="p-2 flex gap-4 justify-end">
         <Button
-          className="text-blue-600 hover:text-blue-500 font-semibold sm:px-0"
+          className="text-black hover:text-gray-700 font-semibold sm:px-0"
           label="Edit"
           type="button"
           onClick={() => editClick(user)}
         />
 
         <Button
-          className="text-red-700 hover:text-red-500 font-semibold sm:px-0"
+          className="text-red-600 hover:text-red-700 font-semibold sm:px-0"
           label="Delete"
           type="button"
           onClick={() => deleteClick(user?._id)}
@@ -144,12 +145,12 @@ const Users = () => {
           <Button
             label="Add New User"
             icon={<IoMdAdd className="text-lg" />}
-            className="flex flex-row-reverse gap-1 items-center bg-[#fabb18] hover:bg-yellow-500 text-black rounded-lg"
+            className="flex flex-row-reverse gap-1 items-center bg-black hover:bg-gray-800 text-white rounded-lg"
             onClick={() => setOpen(true)}
           />
         </div>
 
-        <div className="bg-white px-2 md:px-4 py-4">
+        <div className="bg-[#f8f8f8] px-2 md:px-4 py-4 rounded-2xl">
           <div className="overflow-x-auto">
             <table className="w-full mb-5">
               <TableHeader />

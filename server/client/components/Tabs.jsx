@@ -19,8 +19,8 @@ const Tabs = ({ tabs, setSelected, children }) => {
                 classNames(
                   "w-fit flex items-center outline-none gap-2 p-3 text-base font-bold leading-5 bg-white select-none",
                   selected
-                    ? "text-[#fabb18] border-b-2 border-[#fabb18]"
-                    : "text-black hover:text-[#fabb18]"
+                    ? "text-black border-b-2 border-black"
+                    : "text-black hover:text-gray-500"
                 )
               }
             >

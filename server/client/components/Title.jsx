@@ -5,7 +5,7 @@ const Title = ({ title, className }) => {
   return (
     <h2
       className={clsx(
-        "text-2xl  font-extrabold uppercase select-none tracking-wide",
+        "text-2xl font-extrabold uppercase select-none tracking-wide",
         className
       )}
     >

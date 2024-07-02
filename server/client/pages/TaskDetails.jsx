@@ -30,7 +30,7 @@ const ICONS = {
 
 const bgColor = {
   high: "bg-red-200",
-  medium: "bg-yellow-200",
+  medium: "bg-yellow-100",
   low: "bg-blue-200",
 };
 
@@ -101,7 +101,7 @@ const TaskDetails = () => {
       <Tabs tabs={TABS} setSelected={setSelected}>
         {selected === 0 ? (
           <>
-            <div className="w-full flex flex-col md:flex-row gap-5 2xl:gap-8 shadow-md p-8 overflow-y-auto">
+            <div className="w-full flex flex-col md:flex-row gap-5 2xl:gap-8 shadow-md p-6 overflow-y-auto">
               <div className="w-full md:w-1/2 space-y-6">
                 {/* LEFT */}
                 <div className="flex items-center gap-5">
@@ -126,7 +126,7 @@ const TaskDetails = () => {
                     <span className="text-black uppercase">{task?.stage}</span>
                   </div>
                 </div>
-                <p className="text-gray-700">
+                <p className="text-gray-800">
                   Created At: {new Date(task?.date).toDateString()}
                 </p>
                 <div className="flex items-center gap-8 p-4 border-y border-gray-300">
@@ -142,30 +142,32 @@ const TaskDetails = () => {
                 </div>
 
                 <div className="space-y-4 py-6">
-                  <p className="text-gray-700 font-bold text-sm">TASK TEAM</p>
+                  <p className="font-bold">TASK TEAM</p>
                   <div className="space-y-3">
                     {task?.team?.map((m, index) => (
                       <div
                         key={index}
                         className="flex gap-4 py-2 items-center border-t border-gray-300"
                       >
-                        <div className="w-10 h-10 rounded-full text-white flex items-center justify-center text-sm -mr-1 bg-[#fabb18]">
+                        <div className="w-10 h-10 rounded-full text-white flex items-center justify-center text-sm -mr-1 bg-black">
                           <span className="text-center font-bold">
                             {getInitials(m?.name)}
                           </span>
                         </div>
                         <div>
                           <p className="text-lg font-semibold">{m?.name}</p>
-                          <span className="text-gray-500">{m.title}</span>
+                          <span className="text-gray-500 capitalize">
+                            {m.title}
+                          </span>
                         </div>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="space-y-4 py-6">
-                  <p className="text-gray-700 font-bold text-sm">SUB-TASKS</p>
-                  <div className="space-y-8">
+                <div>
+                  <p className="font-bold">SUB-TASKS</p>
+                  <div className=" mt-2">
                     {task?.subTasks?.map((el, index) => (
                       <div key={index} className="flex gap-3">
                         <div className="w-10 h-10 flex items-center justify-center rounded-full bg-violet-50-200">
@@ -174,14 +176,14 @@ const TaskDetails = () => {
 
                         <div className="space-y-1">
                           <div className="flex gap-2 items-center">
-                            <span className="text-sm text-gray-500">
+                            <span className="text-sm text-gray-600">
                               {new Date(el?.date).toDateString()}
                             </span>
                             <span className="px-2 py-0.5 text-center text-sm rounded-full bg-violet-100 text-violet-700 font-semibold">
                               {el?.tag}
                             </span>
                           </div>
-                          <p className="text-gray-700">{el?.title}</p>
+                          <p className="text-gray-800 font-bold">{el?.title}</p>
                         </div>
                       </div>
                     ))}
@@ -190,14 +192,14 @@ const TaskDetails = () => {
               </div>
               {/* RIGHT */}
               <div className="w-full md:w-1/2 space-y-8">
-                <p className="text-lg font-semibold">ASSETS</p>
+                <p className="text-lg font-bold">ASSETS</p>
                 <div className=" w-full grid grid-cols-2 gap-4">
                   {task?.assets?.map((el, index) => (
                     <img
                       key={index}
                       src={el}
                       alt={task.title}
-                      className="w-full rounded h-30 md:h-36 2xl:h-60 cursor-pointer transition-all duration-700 hover:scale-125 hover:z-50"
+                      className="w-full rounded-lg h-60 md:h-60 2xl:h-full cursor-pointer transition-all duration-700 hover:scale-110 hover:z-50"
                     />
                   ))}
                 </div>

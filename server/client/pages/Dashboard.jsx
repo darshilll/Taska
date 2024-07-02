@@ -62,7 +62,7 @@ const TaskTable = ({ tasks }) => {
             <div
               key={index}
               className={clsx(
-                "w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold -mr-1",
+                "w-9 h-9 rounded-full flex items-center text-white justify-center text-sm font-semibold -mr-1",
                 BGS[index % BGS.length]
               )}
             >
@@ -81,7 +81,7 @@ const TaskTable = ({ tasks }) => {
 
   return (
     <>
-      <div className="w-full bg-[#e2e1e1] px-2 md:px-4 pt-4 pb-4 shadow-md rounded-xl">
+      <div className="w-full bg-[#f8f8f8] px-2 md:px-4 pt-4 pb-4 shadow-md rounded-xl">
         <table className="w-full">
           <TableHeader />
           <tbody>
@@ -135,7 +135,7 @@ const UserTable = () => {
     </tr>
   );
   return (
-    <div className="w-full md:w-2/3 bg-[#e2e1e1] px-2 md:px-6 h-fit pb-4  shadow-md rounded-xl">
+    <div className="w-full md:w-2/3 bg-[#f8f8f8] px-2 md:px-6 h-fit pb-4  shadow-md rounded-xl">
       <table className="w-full mb-5">
         <TableHeader />
         <tbody>
@@ -214,7 +214,7 @@ const Dashboard = () => {
   return (
     <main className="h-full w-full text-black">
       <div className="flex mb-6 -mt-3 select-none">
-        <div className="flex rounded-3xl px-10 py-3  bg-[#e2e1e1]  w-full 2xl:w-full min-h-fit">
+        <div className="flex rounded-3xl px-10 py-3  bg-[#f8f8f8] relative 2xl:w-full">
           <p className="text-[18px] 2xl:text-[28px] xl:text-[25px] md:[22px]">
             Hello, {user?.name?.split(" ")[0]}!
             <span className=" text-[20px] font-bold 2xl:text-[35px] 2xl:font-extrabold ">
@@ -222,11 +222,11 @@ const Dashboard = () => {
               <p className="-mt-2 mb-2">{data?.totalTasks} tasks today 📝</p>
             </span>
           </p>
-          {/* <img
+          <img
             src="assets/images/image.png"
             alt="person"
-            className=" max-w-xl relative z-20 bottom-10 left-1/2 h-44 w-64 object-fill hidden md:block"
-          /> */}
+            className=" max-w-xl relative z-20  left-1/2 bottom-3 h-44 w-60 object-fill hidden md:block"
+          />
         </div>
       </div>
 
@@ -235,7 +235,7 @@ const Dashboard = () => {
           <Card key={index} icon={icon} bg={bg} label={label} count={total} />
         ))}
       </div>
-      <div className="w-full bg-[#dedcdcde] rounded-3xl my-10  shadow-sm">
+      <div className="w-full bg-[#f8f8f8] rounded-3xl my-10  shadow-sm">
         <h4 className="text-2xl font-bold p-4 uppercase">Chart by Priority</h4>
         <Chart data={data?.graphData} />
       </div>
