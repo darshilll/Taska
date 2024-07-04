@@ -209,7 +209,7 @@ const Dashboard = () => {
         <div className="h-full flex flex-col justify-between text-white">
           <p className="text-base font-bold">{label}</p>
           <span className="text-2xl font-semibold">{count}</span>
-          <span className="text-sm text-gray-300">{"11% last month"}</span>
+          {/* <span className="text-sm text-gray-300">{"11% last month"}</span> */}
         </div>
         <div
           className={clsx(
@@ -231,7 +231,9 @@ const Dashboard = () => {
             Hello, {user?.name?.split(" ")[0]}!
             <span className=" text-[20px] font-bold 2xl:text-[35px] 2xl:font-extrabold ">
               <p>You've got</p>
-              <p className="-mt-2 mb-2">{data?.totalTasks} tasks today 📝</p>
+              <p className="-mt-2 mb-2">
+                {data?.totalTasks ? "" : 0} tasks today 🗒️
+              </p>
             </span>
           </p>
           <img
