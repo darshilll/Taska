@@ -58,7 +58,7 @@ const MobileSidebar = () => {
         enter="transition ease-out duration-700"
         enterFrom="transform opacity-0 scale-95"
         enterTo="transform opacity-100 scale-100"
-        leave="transition ease-in duration-75"
+        leave="transition ease-out duration-75"
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
@@ -66,18 +66,18 @@ const MobileSidebar = () => {
           <main
             ref={(node) => (mobileMenuRef.current = node)}
             className={clsx(
-              "md:hidden w-full h-full bg-black/40  ",
+              "md:hidden w-full h-full bg-black/40  transition-all duration-700 transform",
               isSidebarOpen ? "translate-x-0" : "translate-x-full"
             )}
             onClick={() => closeSidebar()}
           >
-            <div className="w-[60%] h-full">
-              <div className="w-full flex justify-end px-5 ">
+            <div className="bg-black w-[60%] h-full ">
+              <div className="w-full flex justify-end px-5">
                 <button
                   onClick={() => closeSidebar()}
-                  className="flex justify-end items-end "
+                  className="flex justify-end items-end"
                 >
-                  <IoClose size={30} className="mt-4" />
+                  <IoClose size={30} className="mt-4 text-white" />
                 </button>
               </div>
               <div className="-mt-10">

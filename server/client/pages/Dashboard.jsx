@@ -33,7 +33,7 @@ const TaskTable = ({ tasks }) => {
         <th className="py-2">Task Title</th>
         <th className="py-2 ">Priority</th>
         <th className="py-2 ">Team</th>
-        <th className="py-2 hidden md:block">Created At</th>
+        <th className="py-2 hidden lg:block">Created At</th>
       </tr>
     </thead>
   );
@@ -43,26 +43,36 @@ const TaskTable = ({ tasks }) => {
       <td className="py-2">
         <div className="flex items-center gap-2">
           <div
-            className={clsx("w-4 h-4 rounded-full", TASK_TYPE[task.stage])}
+            className={clsx(
+              "w-2.5 h-2.5 2xl:w-3.5 2xl:h-3.5 rounded-full",
+              TASK_TYPE[task.stage]
+            )}
           />
-          <p className="text-black text-base">{task.title}</p>
+          <p className="text-black text-sm 2xl:text-base md:text-base ">
+            {task.title}
+          </p>
         </div>
       </td>
       <td className="py-2">
-        <div className="flex gap-1 items-center">
-          <span className={clsx("text-lg", PRIOTITYSTYELS[task.priority])}>
+        <div className="flex items-center">
+          <span
+            className={clsx(
+              "text-md 2xl:text-xl md:text-lg",
+              PRIOTITYSTYELS[task.priority]
+            )}
+          >
             {ICONS[task.priority]}
           </span>
-          <span>{task.priority}</span>
+          <span className="text-sm md:text-base">{task.priority}</span>
         </div>
       </td>
       <td className="py-2">
-        <div className="flex">
+        <div className="flex ml-2">
           {task.team.map((m, index) => (
             <div
               key={index}
               className={clsx(
-                "w-9 h-9 rounded-full flex items-center text-white justify-center text-sm font-semibold -mr-1",
+                "w-7 h-7 rounded-full flex items-center text-white justify-center text-xs md:font-semibold md:w-9 md:h-9 md:text-sm -mr-1",
                 BGS[index % BGS.length]
               )}
             >
@@ -71,7 +81,7 @@ const TaskTable = ({ tasks }) => {
           ))}
         </div>
       </td>
-      <td className="py-2 hidden md:block">
+      <td className="py-2 hidden lg:block">
         <span className="text-base text-gray-600">
           {moment(task?.date).fromNow()}
         </span>
@@ -81,7 +91,7 @@ const TaskTable = ({ tasks }) => {
 
   return (
     <>
-      <div className="w-full bg-[#f8f8f8] px-2 md:px-4 pt-4 pb-4 shadow-md rounded-xl">
+      <div className="w-full bg-[#f8f8f8] px-2 md:px-4 pt-4 pb-4 shadow-md rounded-2xl">
         <table className="w-full">
           <TableHeader />
           <tbody>
@@ -110,32 +120,34 @@ const UserTable = () => {
     <tr className="border-b border-gray-400 text-gray-600 hover:bg-gray-300/15">
       <td className="py-2">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-full text-white flex items-center justify-center text-sm bg-red-600">
+          <div className="w-10 h-10 p-3 rounded-full text-black flex items-center justify-center text-sm bg-[#b9bff8]">
             <span className="text-center font-bold">
               {getInitials(user?.name)}
             </span>
           </div>
-          <div className="text-black">
+          <div className="text-black text-sm md:text-base">
             <p>{user.name}</p>
-            <span className="text-xs ">{user.role}</span>
+            <span className="text-xs">{user.role}</span>
           </div>
         </div>
       </td>
       <td>
         <p
           className={clsx(
-            "w-fit px-3 py-1 rounded-full text-sm",
+            "w-fit px-3 py-1 rounded-full text-xs lg:text-sm",
             user?.isActive ? "bg-blue-200" : "bg-yellow-100"
           )}
         >
           {user?.isActive ? "Active" : "Disabled"}
         </p>
       </td>
-      <td className="py-2 text-sm">{moment(user?.createdAt).fromNow()}</td>
+      <td className="py-2 text-xs lg:text-sm">
+        {moment(user?.createdAt).fromNow()}
+      </td>
     </tr>
   );
   return (
-    <div className="w-full md:w-2/3 bg-[#f8f8f8] px-2 md:px-6 h-fit pb-4  shadow-md rounded-xl">
+    <div className="w-full lg:w-2/3  bg-[#f8f8f8] px-2 md:px-6 h-fit pb-4 shadow-md rounded-xl">
       <table className="w-full mb-5">
         <TableHeader />
         <tbody>
@@ -214,7 +226,7 @@ const Dashboard = () => {
   return (
     <main className="h-full w-full text-black">
       <div className="flex mb-6 -mt-3 select-none">
-        <div className="flex rounded-3xl px-10 py-3  bg-[#f8f8f8] relative 2xl:w-full">
+        <div className="flex rounded-3xl px-10 py-3 bg-[#f8f8f8] relative w-full">
           <p className="text-[18px] 2xl:text-[28px] xl:text-[25px] md:[22px]">
             Hello, {user?.name?.split(" ")[0]}!
             <span className=" text-[20px] font-bold 2xl:text-[35px] 2xl:font-extrabold ">
@@ -225,21 +237,23 @@ const Dashboard = () => {
           <img
             src="assets/images/image.png"
             alt="person"
-            className=" max-w-xl relative z-20  left-1/2 bottom-3 h-44 w-60 object-fill hidden md:block"
+            className="max-w-xl relative left-1/2 bottom-3 h-44 w-60 object-fill hidden lg:block"
           />
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
         {stats.map(({ icon, bg, label, total }, index) => (
           <Card key={index} icon={icon} bg={bg} label={label} count={total} />
         ))}
       </div>
-      <div className="w-full bg-[#f8f8f8] rounded-3xl my-10  shadow-sm">
-        <h4 className="text-2xl font-bold p-4 uppercase">Chart by Priority</h4>
+      <div className="w-full bg-[#f8f8f8] rounded-3xl my-10  shadow-md">
+        <h4 className="2xl:text-2xl xl:text-xl text-lg font-bold p-4 uppercase">
+          Chart by Priority
+        </h4>
         <Chart data={data?.graphData} />
       </div>
-      <div className="w-full flex flex-col md:flex-row gap-4 2xl:gap-10 py-8">
+      <div className="w-full flex flex-col lg:flex-row gap-4 2xl:gap-10 py-8 ">
         {/* left */}
 
         <TaskTable tasks={data?.last10Task} />

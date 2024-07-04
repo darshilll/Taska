@@ -40,12 +40,12 @@ const UserAvatar = () => {
           <div className="flex gap-3">
             <div className="2xl:flex xl:flex flex-col -mt-1 hidden">
               <span className="font-semibold text-xl">{user?.name}</span>
-              <span className="text-gray-400 -mt-1 text-right">
+              <span className="text-gray-500 -mt-1 text-right">
                 {user?.title}
               </span>
             </div>
             <Menu.Button className="w-10 h-10 2xl:w-12 2xl:h-12 items-center justify-center rounded-full bg-black -mt-1 border-2 border-gray-400">
-              <span className="text-white font-bold text-md 2xl:text-lg">
+              <span className="text-white font-semibold text-md 2xl:text-lg">
                 {getInitials(user?.name)}
               </span>
             </Menu.Button>
@@ -59,13 +59,13 @@ const UserAvatar = () => {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-gray-100 rounded-md bg-white shadow-2xl ring-black/5 focus:outline-none">
+            <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-gray-100 rounded-md bg-[#f8f8f8] shadow-2xl ring-black/5 focus:outline-none">
               <div className="p-4">
                 <Menu.Item>
                   {({ active }) => (
                     <button
                       onClick={() => setOpen(true)}
-                      className="hover:text-[#fabb18] group flex w-full items-center rounded-md p-2"
+                      className="hover:text-gray-800 group flex w-full items-center rounded-md p-2"
                     >
                       <FaUser className="mr-2" aria-hidden="true" />
                       Profile
@@ -77,9 +77,13 @@ const UserAvatar = () => {
                   {({ active }) => (
                     <button
                       onClick={() => setOpenPassword(true)}
-                      className="hover:text-[#fabb18] group flex w-full items-center rounded-md p-2"
+                      className="hover:text-gray-800 group flex w-full items-center rounded-md p-2"
                     >
-                      <FaUserLock className="mr-2" aria-hidden="true" />
+                      <FaUserLock
+                        className="mr-2"
+                        aria-hidden="true"
+                        size={19}
+                      />
                       Change Password
                     </button>
                   )}
@@ -91,7 +95,11 @@ const UserAvatar = () => {
                       onClick={logoutHandler}
                       className="text-red-600 group flex w-full items-center rounded-md px-2 hover:text-red-700"
                     >
-                      <IoLogOutOutline className="mr-2" aria-hidden="true" />
+                      <IoLogOutOutline
+                        className="mr-2"
+                        aria-hidden="true"
+                        size={19}
+                      />
                       Logout
                     </button>
                   )}

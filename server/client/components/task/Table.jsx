@@ -77,7 +77,7 @@ const Table = () => {
       <tr className="w-full text-black text-left">
         <th className="py-2">Task Title</th>
         <th className="py-2">Priority</th>
-        <th className="py-2 line-clamp-1">Created At</th>
+        <th className="py-2 line-clamp-1 ">Created At</th>
         <th className="py-2">Assets</th>
         <th className="py-2">Team</th>
       </tr>
@@ -89,7 +89,7 @@ const Table = () => {
       <td className="py-2">
         <div className="flex items-center gap-2">
           <div
-            className={clsx("w-4 h-4 rounded-full", TASK_TYPE[task.stage])}
+            className={clsx("w-3 h-3 p-1 rounded-full", TASK_TYPE[task.stage])}
           />
           <p className="w-full line-clamp-2 text-base text-black">
             {task?.title}
@@ -98,24 +98,29 @@ const Table = () => {
       </td>
 
       <td className="py-2">
-        <div className="flex gap-1 items-center">
-          <span className={clsx("text-lg", PRIOTITYSTYELS[task?.priority])}>
+        <div className="flex gap-1 items-center ">
+          <span
+            className={clsx(
+              "text-lg hidden lg:block",
+              PRIOTITYSTYELS[task?.priority]
+            )}
+          >
             {ICONS[task?.priority]}
           </span>
-          <span className="capitalize line-clamp-1">
+          <span className="capitalize line-clamp-1 hidden lg:block">
             {task?.priority} Priority
           </span>
         </div>
       </td>
 
       <td className="py-2">
-        <span className="text-sm text-gray-600">
+        <span className="text-sm text-gray-600 hidden lg:block">
           {formatDate(new Date(task?.date))}
         </span>
       </td>
 
       <td className="py-2">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 -ml-20 md:ml-0">
           <div className="flex gap-1 items-center text-sm text-gray-600">
             <BiMessageAltDetail />
             <span>{task?.activities?.length}</span>
@@ -149,14 +154,14 @@ const Table = () => {
 
       <td className="py-2 flex gap-2 md:gap-4 justify-end">
         <Button
-          className="text-blue-600 hover:text-blue-500 sm:px-0 text-sm md:text-base"
+          className="text-black hover:text-gray-700 font-semibold sm:px-0 text-sm md:text-base"
           label="Edit"
           type="button"
           onClick={() => editTaskHandler(task)}
         />
 
         <Button
-          className="text-red-700 hover:text-red-500 sm:px-0 md:text-base"
+          className="text-red-600 font-semibold hover:text-red-700 sm:px-0 md:text-base"
           label="Delete"
           type="button"
           onClick={() => deleteClicks(task._id)}

@@ -12,6 +12,7 @@ import {
   useMarkNotIsAsReadMutation,
 } from "../redux/slices/userApiSlice";
 import ViewNotification from "./ViewNotification";
+import { IoIosNotificationsOutline } from "react-icons/io";
 
 const ICONS = {
   alert: (
@@ -57,14 +58,11 @@ const NotificationPanel = () => {
     <>
       <Popover className="relative">
         <Popover.Button className="inline-flex items-center outline-none">
-          <div className="w-8 h-8 flex items-center text-gray-800  relative">
-            <img
-              src="../src/assets/bell-solid.svg"
-              alt="bell"
-              className="mt-5"
-            />
+          <div className="w-8 h-8 flex items-center text-gray-800 relative">
+            {/* <IoIosNotificationsOutline className="text-2xl" size={45} /> */}
+            <IoNotificationsOutline size={45} className="mt-3" />
             {data?.length > 0 && (
-              <span className="absolute text-center top-0 left-3 text-sm text-white font-semibold w-4 h-4 border-white border-2 rounded-full bg-yellow-500 mt-1"></span>
+              <span className="absolute text-center -top-1 left-3.5 text-sm text-white font-semibold w-3.5 h-3.5 border-white border-2 rounded-full bg-black mt-2 select-none"></span>
             )}
           </div>
         </Popover.Button>

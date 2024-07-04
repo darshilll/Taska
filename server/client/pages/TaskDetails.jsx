@@ -36,7 +36,7 @@ const bgColor = {
 
 const TABS = [
   { title: "Task Detail", icon: <FaTasks /> },
-  { title: "Activities/Timeline", icon: <RxActivityLog /> },
+  { title: "Activities", icon: <RxActivityLog /> },
 ];
 
 export const TASKTYPEICON = {
@@ -97,7 +97,9 @@ const TaskDetails = () => {
 
   return (
     <div className="w-full flex flex-col gap-3 mb-4 overflow-y-hidden">
-      <h1 className="text-2xl font-extrabold uppercase">{task?.title}</h1>
+      <h1 className="text-lg md:text-xl lg:text-2xl font-extrabold uppercase">
+        {task?.title}
+      </h1>
       <Tabs tabs={TABS} setSelected={setSelected}>
         {selected === 0 ? (
           <>

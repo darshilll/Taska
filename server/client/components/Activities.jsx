@@ -61,7 +61,7 @@ const Activities = ({ activity, id, refetch }) => {
   };
 
   return (
-    <div className="w-full flex gap-10 2xl:gap-20 min-h-screen px-3 py-8 shadow-md rounded-md justify-between overflow-y-auto">
+    <div className="w-full flex flex-col lg:flex-row  gap-10 2xl:gap-20 min-h-screen px-3 py-8 shadow-md rounded-md justify-between overflow-y-auto">
       <div className="w-full md:w-1/2">
         <h4 className="font-bold text-lg mb-5 uppercase">Activities</h4>
         <div className="w-full">
@@ -78,7 +78,7 @@ const Activities = ({ activity, id, refetch }) => {
         className="w-full md:w-1/3
       "
       >
-        <h4 className="  font-bold text-lg mb-5">Add Activity</h4>
+        <h4 className="font-bold text-lg mb-5">Add Activity</h4>
         <div className="w-full flex flex-wrap gap-5">
           {act_types.map((item, index) => (
             <div key={item} className="flex gap-2 items-center">

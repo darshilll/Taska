@@ -172,7 +172,7 @@ const Trash = () => {
 
   return (
     <>
-      <div className="w-full md:px-1 px-0 mb-6">
+      <div className="w-full md:px-1 px-0 mb-6 select-none">
         <div className="flex items-center justify-between mb-8">
           <Title title="Trashed Tasks" />
           <div className="flex gap-2 md:gap-4 items-center">
@@ -190,7 +190,7 @@ const Trash = () => {
             />
           </div>
         </div>
-        <div className="bg-white px-2 md:px-6 py-4 shadow-md rounded">
+        <div className="bg-[#f8f8f8] px-2 md:px-6 py-4 shadow-md rounded-xl">
           <div className="overflow-x-auto">
             <table className="w-full mb-5">
               <TableHeader />

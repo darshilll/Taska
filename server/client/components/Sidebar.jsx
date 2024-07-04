@@ -63,24 +63,21 @@ const Sidebar = () => {
         to={el.link}
         onClick={closeSidebar}
         className={clsx(
-          "w-14 h-14 lg:3/4 flex gap-3  rounded-full items-center justify-center text-white text-base ",
+          "w-14 h-14 lg:3/4 flex gap-3 rounded-full items-center justify-center text-base",
           path === el.link.split("/")[0]
-            ? "bg-white text-neutral-950"
-            : "hover:bg-white hover:text-black"
+            ? "bg-white text-black"
+            : "hover:bg-white hover:text-black text-white"
         )}
       >
         {el.icon}
-        {/* <span className="font-bold text-sm 2xl:text-lg xl:text-md">
-          {el.label}
-        </span> */}
       </Link>
     );
   };
   return (
-    <main className="w-full h-full flex flex-col gap-5 p-6 border-r-4 border-gray-500">
+    <main className="w-full h-full flex flex-col gap-5 p-6 2xl:border-r-4 2xl:border-gray-500 xl:border-r-4 xl:border-gray-500 md:border-r-4 md:border-gray-500">
       <div className=" ">
         {/* <img src="assets/images/Tech T Symbol.jpeg" alt="taska" /> */}
-        <p className="text-white font-bold text-2xl text-center">taska</p>
+        <p className="text-white font-bold text-2xl 2xl:text-center ">taska</p>
       </div>
 
       <div className="flex-1 flex flex-col gap-y-4 py-8 -mt-8">

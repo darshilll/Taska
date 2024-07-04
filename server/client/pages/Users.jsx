@@ -150,7 +150,7 @@ const Users = () => {
           />
         </div>
 
-        <div className="bg-[#f8f8f8] px-2 md:px-4 py-4 rounded-2xl">
+        <div className="bg-[#f8f8f8] px-2 md:px-4 py-4 rounded-2xl shadow-md">
           <div className="overflow-x-auto">
             <table className="w-full mb-5">
               <TableHeader />
