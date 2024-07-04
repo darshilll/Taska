@@ -121,25 +121,27 @@ const Trash = () => {
 
   const TableHeader = () => (
     <thead className="border-b border-gray-300">
-      <tr className="text-black text-left">
+      <tr className="text-black text-left text-sm lg:text-base">
         <th className="py-2">Task Title</th>
         <th className="py-2">Priority</th>
         <th className="py-2">Stage</th>
-        <th className="py-2 line-clamp-1">Modified On</th>
+        <th className="py-2 hidden md:table-cell line-clamp-1">Modified On</th>
+        <th className="py-2 text-end">Actions</th>
       </tr>
     </thead>
   );
 
   const TableRow = ({ item }) => (
-    <tr className="border-b border-gray-200 text-gray-600 hover:bg-gray-400/10">
-      <td className="py-2">
+    <tr className="border-b border-gray-200 text-gray-600 hover:bg-gray-400/10 text-sm lg:text-base">
+      <td className="py-2 ">
         <div className="flex items-center gap-2">
           <div
-            className={clsx("w-4 h-4 rounded-full", TASK_TYPE[item.stage])}
+            className={clsx(
+              "w-3 h-3 lg:w-4 lg:h-4 p-1 rounded-full",
+              TASK_TYPE[item.stage]
+            )}
           />
-          <p className="w-full line-clamp-2 text-base text-black">
-            {item?.title}
-          </p>
+          <p className="w-full line-clamp-2 text-black ">{item?.title}</p>
         </div>
       </td>
 
@@ -155,9 +157,13 @@ const Trash = () => {
       <td className="py-2 capitalize text-center md:text-start">
         {item?.stage}
       </td>
-      <td className="py-2 text-sm">{new Date(item?.date).toDateString()}</td>
+      <td className="py-2 text-sm hidden md:table-cell max-w-xs ">
+        <span className="block truncate">
+          {new Date(item?.date).toDateString()}
+        </span>
+      </td>
 
-      <td className="py-2 flex gap-1 justify-end">
+      <td className="py-2 flex justify-end">
         <Button
           icon={<MdOutlineRestore className="text-xl text-gray-500" />}
           onClick={() => restoreClick(item._id)}
@@ -177,15 +183,17 @@ const Trash = () => {
           <Title title="Trashed Tasks" />
           <div className="flex gap-2 md:gap-4 items-center">
             <Button
-              label="Restore All"
-              icon={<MdOutlineRestore className="text-lg hidden md:flex" />}
-              className="flex flex-row-reverse gap-1 items-center text-black text-sm md:text-base rounded-md 2xl:py-2.5"
+              label="Restore all"
+              icon={<MdOutlineRestore className="text-lg flex" size={22} />}
+              className="flex gap-1 items-center text-black text-sm md:text-base rounded-md 2xl:py-2.5 text-left"
               onClick={() => restoreAllClick()}
             />
             <Button
-              label="Delete All"
-              icon={<MdDelete className="text-lg hidden md:flex" />}
-              className="flex flex-row-reverse gap-1 items-center text-black text-sm md:text-base rounded-md 2xl:py-2.5"
+              label="Delete all"
+              icon={
+                <MdDelete className="text-lg  flex text-red-500" size={22} />
+              }
+              className="flex gap-1 items-center text-red-500 text-sm md:text-base rounded-md 2xl:py-2.5 text-left"
               onClick={() => deleteAllClick()}
             />
           </div>

@@ -145,7 +145,7 @@ const Users = () => {
           <Button
             label="Add New User"
             icon={<IoMdAdd className="text-lg" />}
-            className="flex flex-row-reverse gap-1 items-center bg-black hover:bg-gray-800 text-white rounded-lg"
+            className="flex gap-1 items-center bg-black hover:bg-gray-800 text-white rounded-lg text-sm lg:text-base"
             onClick={() => setOpen(true)}
           />
         </div>
