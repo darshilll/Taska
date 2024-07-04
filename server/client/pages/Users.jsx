@@ -16,6 +16,8 @@ import {
   useGetTeamListQuery,
   useUserActionMutation,
 } from "../redux/slices/userApiSlice";
+import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 
 const Users = () => {
   const [openDialog, setOpenDialog] = useState(false);
@@ -81,10 +83,10 @@ const Users = () => {
 
   const TableHeader = () => (
     <thead className="border-b border-gray-300">
-      <tr className="text-black text-left">
+      <tr className="text-black text-sm lg:text-base text-left">
         <th className="py-2">Full Name</th>
-        <th className="py-2">Title</th>
         <th className="py-2">Email</th>
+        <th className="py-2">Title</th>
         <th className="py-2">Role</th>
         <th className="py-2">Active</th>
       </tr>
@@ -92,21 +94,21 @@ const Users = () => {
   );
 
   const TableRow = ({ user }) => (
-    <tr className="border-b border-gray-200 text-gray-800 hover:bg-gray-400/10 ">
-      <td className="p-2">
+    <tr className="border-b border-gray-200 text-gray-800 hover:bg-gray-400/10 text-sm lg:text-base">
+      <td className="py-3">
         <div className="flex items-center gap-2 text-black">
-          <div className="w-10 h-10 rounded-full text-white flex items-center justify-center text-sm bg-black">
+          <div className="w-8 h-8 p-2 lg:w-10 lg:h-10 rounded-full text-white flex items-center justify-center text-sm bg-black">
             <span className="text-xs md:text-sm text-center">
               {getInitials(user.name)}
             </span>
           </div>
-          {user.name}
+          <p>{user.name}</p>
         </div>
       </td>
 
+      <td className="py-3 ">{user.email || "user@gmail.com"}</td>
+      <td className="p-2 capitalize ">{user.role}</td>
       <td className="p-2 capitalize">{user.title}</td>
-      <td className="p-2">{user.email || "user@gmail.com"}</td>
-      <td className="p-2 capitalize">{user.role}</td>
 
       <td>
         <button
@@ -119,19 +121,17 @@ const Users = () => {
           {user?.isActive ? "Active" : "Disabled"}
         </button>
       </td>
-      <td className="p-2 flex gap-4 justify-end">
-        <Button
-          className="text-black hover:text-gray-700 font-semibold sm:px-0"
-          label="Edit"
-          type="button"
+      <td className="py-3 flex justify-end">
+        <FaEdit
           onClick={() => editClick(user)}
+          className="mt-2 ml-2"
+          size={20}
         />
 
-        <Button
-          className="text-red-600 hover:text-red-700 font-semibold sm:px-0"
-          label="Delete"
-          type="button"
+        <MdDelete
           onClick={() => deleteClick(user?._id)}
+          className="mt-2 ml-2 "
+          size={20}
         />
       </td>
     </tr>
