@@ -95,7 +95,7 @@ const TaskCard = ({ task }) => {
         {task?.subTasks?.length > 0 ? (
           <div className="py-4 border-t border-gray-600">
             <div className="flex justify-between">
-              <h5 className="text-base line-clamp-1 text-white font-bold capitalize">
+              <h5 className="text-base text-white font-bold capitalize">
                 {task?.subTasks[0].title}
               </h5>
               <span className="text-sm">

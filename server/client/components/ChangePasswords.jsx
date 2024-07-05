@@ -81,7 +81,7 @@ const ChangePasswords = ({ open, setOpenPassword }) => {
             <div className="py-3 mt-4 sm:flex-row-reverse">
               <Button
                 type="submit"
-                className="bg-blue-600 px-8 text-sm font-semibold text-white hover:bg-blue-500"
+                className="bg-black rounded-lg px-8 text-sm font-semibold text-white hover:bg-gray-800"
                 label="Save"
               />
 

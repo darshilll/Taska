@@ -200,34 +200,74 @@ export const dashboardStatistics = async (req, res) => {
   }
 };
 
+// export const getTasks = async (req, res) => {
+//   try {
+//     const { stage, isTrashed } = req.query;
+//     let query = { isTrashed: isTrashed ? true : false };
+
+//     const { userId, isAdmin } = req.user;
+//     const allTasks = isAdmin
+//       ? await Task.find({
+//           isTrashed: false,
+//         })
+//           .populate({
+//             path: "team",
+//             select: "name role title email",
+//           })
+//           .sort({ _id: -1 })
+//       : await Task.find({
+//           isTrashed: false,
+//           team: { $all: [userId] },
+//         })
+//           .populate({
+//             path: "team",
+//             select: "name role title email",
+//           })
+//           .sort({ _id: -1 });
+
+//     if (stage) {
+//       query.stage = stage;
+//     }
+//     let queryResult = Task.find(query)
+//       .populate({
+//         path: "team",
+//         select: "name title email",
+//       })
+//       .sort({ _id: -1 });
+
+//     const userTask = allTasks?.slice(0, 10);
+//     const tasks = await queryResult;
+
+//     const summary = {
+//       userTask,
+//     };
+
+//     res.status(200).json({
+//       status: true,
+//       ...summary,
+//       tasks,
+//     });
+//   } catch (error) {
+//     console.log(error);
+//     return res.status(400).json({ status: false, message: error.message });
+//   }
+// };
+
 export const getTasks = async (req, res) => {
   try {
-    const { stage, isTrashed } = req.query;
-    let query = { isTrashed: isTrashed ? true : false };
-
     const { userId, isAdmin } = req.user;
-    const allTasks = isAdmin
-      ? await Task.find({
-          isTrashed: false,
-        })
-          .populate({
-            path: "team",
-            select: "name role title email",
-          })
-          .sort({ _id: -1 })
-      : await Task.find({
-          isTrashed: false,
-          team: { $all: [userId] },
-        })
-          .populate({
-            path: "team",
-            select: "name role title email",
-          })
-          .sort({ _id: -1 });
+    const { stage, isTrashed } = req.query;
+
+    let query = { isTrashed: isTrashed ? true : false };
 
     if (stage) {
       query.stage = stage;
     }
+
+    if (!isAdmin) {
+      query.team = { $all: [userId] };
+    }
+
     let queryResult = Task.find(query)
       .populate({
         path: "team",
@@ -235,16 +275,10 @@ export const getTasks = async (req, res) => {
       })
       .sort({ _id: -1 });
 
-    const userTask = allTasks?.slice(0, 10);
     const tasks = await queryResult;
-
-    const summary = {
-      userTask,
-    };
 
     res.status(200).json({
       status: true,
-      ...summary,
       tasks,
     });
   } catch (error) {

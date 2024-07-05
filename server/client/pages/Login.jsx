@@ -33,6 +33,9 @@ const Login = () => {
       const result = await login(data).unwrap();
       dispatch(setCredentials(result));
       navigate("/");
+      setTimeout(() => {
+        window.location.reload();
+      });
     } catch (error) {
       console.log(error);
       toast.error(error?.data?.message || error.message);
@@ -48,7 +51,7 @@ const Login = () => {
       <div className="lg:w-auto flex gap-0 lg:gap-40 flex-col lg:flex-row items-center justify-center">
         {/* left side */}
         <div className="w-full lg:w-2/3 flex flex-col">
-          <div className="md:max-w-lg 2xl:max-w-3xl flex flex-col items-center gap-5 mt-5  lg:-mt-20">
+          <div className="md:max-w-lg 2xl:max-w-3xl flex flex-col items-center gap-5 -mt-5  lg:-mt-20">
             <span className="flex gap-1 py-1 px-3 border rounded-full text-sm md:text-base text-black">
               Manage all your task in one place!
             </span>

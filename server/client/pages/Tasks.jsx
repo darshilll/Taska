@@ -78,10 +78,10 @@ const Tasks = () => {
           )}
 
           {selected !== 1 ? (
-            <BoardView />
+            <BoardView tasks={data?.tasks} />
           ) : (
             <div className="w-full hidden lg:block">
-              <Table />
+              <Table tasks={data?.tasks} />
             </div>
           )}
         </Tabs>

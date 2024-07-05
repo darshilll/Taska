@@ -87,7 +87,7 @@ const TaskDialog = ({ task }) => {
     {
       label: "Add Sub-Task",
       icon: <MdAdd className="mr-2 h-5 w-5" aria-hidden="true" />,
-      onClick: () => (user.isAdmin ? setOpenEdit(true) : setOpen(false)),
+      onClick: () => (user.isAdmin ? setOpen(true) : setOpen(false)),
     },
     {
       label: "Duplicate",

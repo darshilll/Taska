@@ -23,6 +23,7 @@ const AddSubTask = ({ open, setOpen, id }) => {
       toast.success(res.message);
       setTimeout(() => {
         setOpen(false);
+        window.location.reload();
       }, 500);
     } catch (error) {
       console.log(error);
@@ -43,7 +44,7 @@ const AddSubTask = ({ open, setOpen, id }) => {
           </Dialog.Title>
           <div className="mt-2 flex flex-col gap-6">
             <Textbox
-              placeholder="Sub-Task title"
+              placeholder="Sub-Task"
               type="text"
               name="title"
               label="Title"
@@ -81,7 +82,7 @@ const AddSubTask = ({ open, setOpen, id }) => {
           <div className="py-3 mt-4 flex sm:flex-row-reverse gap-4">
             <Button
               type="submit"
-              className="bg-black text-sm font-semibold text-white hover:bg-[#fab118] sm:ml-3 sm:w-auto rounded-md"
+              className="bg-black text-sm font-semibold text-white hover:bg-gray-800 sm:ml-3 sm:w-auto rounded-md"
               label="Add Task"
             />
 
