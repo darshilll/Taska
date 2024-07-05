@@ -10,14 +10,14 @@ export const createTask = async (req, res) => {
 
     let text = "New task has been assigned to you";
     if (team?.length > 1) {
-      text = text + `and ${team?.length - 1} others.`;
+      text = text + ` and ${team?.length - 1} others.`;
     }
 
     text =
       text +
-      `The task priority is set a ${priority} priority, so check and act accordingly. The task date is ${new Date(
+      ` The task priority is set a ${priority} priority, so check and act accordingly. The task date is ${new Date(
         date
-      ).toDateString()}. Thank you!!!`;
+      ).toDateString()}. Thank you!`;
 
     const activity = {
       type: "assigned",

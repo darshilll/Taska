@@ -19,7 +19,16 @@ const Navbar = () => {
         >
           <GiHamburgerMenu size={27} />
         </button>
+        <span className="flex justify-center items-center gap-1 ">
+          <img
+            src="/assets/images/tasks.png"
+            alt="taska"
+            className="h-6 w-6 lg:w-10 lg:h-10 lg:ml-6 tracking-tight"
+          />
+          <p className="text-2xl lg:text-3xl font-bold">taska</p>
+        </span>
       </div>
+
       <div className="flex 2xl:gap-6 gap-2 items-center">
         <NotificationPanel />
         <UserAvatar user={user} />

@@ -71,16 +71,18 @@ const MobileSidebar = () => {
             )}
             onClick={() => closeSidebar()}
           >
-            <div className="bg-black w-[60%] h-full ">
-              <div className="w-full flex justify-end px-5">
-                <button
-                  onClick={() => closeSidebar()}
-                  className="flex justify-end items-end"
-                >
+            <div className="bg-black w-[40%] h-full ">
+              <div className="w-full flex justify-between">
+                <img
+                  src="/assets/images/taskaw.png"
+                  alt="taska"
+                  className="h-9 w-9 mt-4 ml-8"
+                />
+                <button onClick={() => closeSidebar()} className="flex px-2">
                   <IoClose size={30} className="mt-4 text-white" />
                 </button>
               </div>
-              <div className="-mt-10">
+              <div className="">
                 <Sidebar />
               </div>
             </div>

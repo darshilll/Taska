@@ -44,22 +44,37 @@ const Login = () => {
   }, [user]);
 
   return (
-    <div className="w-full min-h-screen flex items-center justify-center flex-col lg:flex-row bg-gradient-to-t from-[#9FA5D5] to-[#E8F5C8]">
-      <div className="md:w-auto flex gap-0 md:gap-40 flex-col md:flex-row items-center justify-center">
+    <div className="w-full min-h-screen flex items-center justify-center flex-col lg:flex-row bg-gradient-to-b from-[#cacbcd] to-[#323841] ">
+      <div className="lg:w-auto flex gap-0 lg:gap-40 flex-col lg:flex-row items-center justify-center">
         {/* left side */}
         <div className="w-full lg:w-2/3 flex flex-col">
-          <div className="md:max-w-lg 2xl:max-w-3xl flex flex-col items-center gap-5  2xl:-mt-20">
-            <span className="flex gap-1 py-1 px-3 border rounded-full text-sm md:text-base text-gray-700">
+          <div className="md:max-w-lg 2xl:max-w-3xl flex flex-col items-center gap-5 mt-5  lg:-mt-20">
+            <span className="flex gap-1 py-1 px-3 border rounded-full text-sm md:text-base text-black">
               Manage all your task in one place!
             </span>
-            <img src="/assets/images/taska2p.png" alt="taska" className="" />
-            <p className="flex flex-col md:gap-4 text-4xl md:text-6xl 2xl:text-6xl font-black text-center text-black select-none">
-              <span>Your digital </span>
-              <span className="">task assistant</span>
+            <span className="flex justify-center items-center gap-3 -mt-2">
+              <img
+                src="/assets/images/tasks.png"
+                alt="taska"
+                className="h-9 w-9 lg:w-14 lg:h-14 "
+              />
+              <p className="font-extrabold text-4xl text-[#dadde0] lg:text-6xl tracking-tight">
+                taska
+              </p>
+            </span>
+            <p className="flex flex-col lg:gap-3 text-3xl md:text-4xl lg:text-6xl font-black text-center text-black select-none -mt-3 lg:mt-0">
+              <span className="flex justify-center items-center gap-2 lg:gap-3">
+                Your <p className="text-black">digital</p>
+              </span>
+              <span className="flex justify-center items-center gap-2 lg:gap-3 text-[#dadde0]">
+                task <p className="text-black">assistant</p>
+              </span>
             </p>
 
-            <div className="cell">
-              <div className="circle rotate-in-up-left"></div>
+            <div className="hidden lg:block">
+              <div className="cell">
+                <div className="circle rotate-in-up-left"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -67,13 +82,13 @@ const Login = () => {
         <div className="md:1/3 p-4 md:p-1 flex flex-col justify-center items-center">
           <form
             onSubmit={handleSubmit(submitHandler)}
-            className="form-container w-full md:w-[400px] flex flex-col gap-y-8 bg-[#fdf4e5] px-10 py-14"
+            className="form-container w-full md:w-[400px] flex flex-col gap-y-8 bg-[#f8f8f8] p-8 lg:px-10 lg:py-12"
           >
             <div>
-              <p className="text-gray-800 text-xl  text-center font-bold -mt-3">
+              <p className="text-black text-lg md:text-xl text-center font-bold -mt-3">
                 Welcome Back, Task Master
               </p>
-              <p className="text-center text-base text-gray-600">
+              <p className="text-center text-sm md:text-base text-gray-700">
                 Continue where you left off.
               </p>
             </div>
@@ -105,11 +120,11 @@ const Login = () => {
               ) : (
                 <Button
                   type="submit"
-                  label="Login"
-                  className="w-full h-10 bg-black text-white rounded-lg font-bold hover:bg-gray-800"
+                  label="Log in"
+                  className="w-full h-10 bg-black text-white rounded-lg font-semibold hover:bg-gray-800"
                 />
               )}
-              <p className="text-center">
+              <p className="text-center text-md">
                 Don't have an account?
                 <Link
                   to="/signup"

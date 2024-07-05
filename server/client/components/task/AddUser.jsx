@@ -45,7 +45,7 @@ const AddUser = ({ open, setOpen, userData }) => {
           dispatch(setCredentials({ ...result.user }));
         }
       } else {
-        const result = await addNewUser({
+        await addNewUser({
           ...data,
           password: data.email,
         }).unwrap();
