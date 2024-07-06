@@ -172,17 +172,25 @@ const Table = () => {
 
   return (
     <>
-      <div className="bg-white px-2 md:px-4 pt-4 pb-9 shadow-md rounded">
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <TableHeader />
-            <tbody>
-              {data?.tasks.map((task, index) => (
-                <TableRow key={index} task={task} />
-              ))}
-            </tbody>
-          </table>
-        </div>
+      <div className="w-full py-4">
+        {data?.tasks.length === 0 ? (
+          <div className="text-center text-gray-500 text-lg">
+            No tasks are assigned
+          </div>
+        ) : (
+          <div className="bg-white px-2 md:px-4 pt-4 pb-9 shadow-md rounded">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <TableHeader />
+                <tbody>
+                  {data?.tasks.map((task, index) => (
+                    <TableRow key={index} task={task} />
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
       </div>
 
       <ConfirmatioDialog

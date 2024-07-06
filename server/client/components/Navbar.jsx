@@ -4,9 +4,11 @@ import { setOpenSidebar } from "../redux/slices/authSlice";
 import UserAvatar from "./UserAvatar";
 import NotificationPanel from "./NotificationPanel";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const { user } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -19,7 +21,10 @@ const Navbar = () => {
         >
           <GiHamburgerMenu size={27} />
         </button>
-        <span className="flex justify-center items-center gap-1 ">
+        <span
+          className="flex justify-center items-center gap-1 cursor-pointer"
+          onClick={() => navigate("/")}
+        >
           <img
             src="/assets/images/tasks.png"
             alt="taska"

@@ -80,9 +80,14 @@ const Tasks = () => {
           {selected !== 1 ? (
             <BoardView tasks={data?.tasks} />
           ) : (
-            <div className="w-full hidden lg:block">
-              <Table tasks={data?.tasks} />
-            </div>
+            <>
+              <div className="text-center text-gray-500 text-lg block lg:hidden mt-6">
+                Available on laptop devices
+              </div>
+              <div className="w-full hidden lg:block">
+                <Table tasks={data?.tasks} />
+              </div>
+            </>
           )}
         </Tabs>
 

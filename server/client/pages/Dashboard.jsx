@@ -229,7 +229,7 @@ const Dashboard = () => {
         <div className="flex rounded-3xl px-10 py-3 bg-[#f8f8f8] relative w-full">
           <p className="text-[18px] 2xl:text-[28px] xl:text-[25px] md:[22px]">
             Hello, {user?.name?.split(" ")[0]}!
-            <span className=" text-[20px] font-bold 2xl:text-[35px] 2xl:font-extrabold ">
+            <span className=" text-[20px] font-bold md:text-[35px] md:font-extrabold ">
               <p>You've got</p>
               <p className="-mt-2 mb-2">
                 {data ? data?.totalTasks : "0"} tasks today 🗒️
@@ -239,7 +239,7 @@ const Dashboard = () => {
           <img
             src="assets/images/image.png"
             alt="person"
-            className="max-w-xl relative left-1/2 bottom-3 h-44 w-60 object-fill hidden lg:block"
+            className="max-w-xl relative 2xl:left-1/2 xl:left-1/2 lg:left-1/3 bottom-6 h-48 w-60 object-fill hidden lg:block"
           />
         </div>
       </div>
@@ -257,8 +257,15 @@ const Dashboard = () => {
       </div>
       <div className="w-full flex flex-col lg:flex-row gap-4 2xl:gap-10 py-8 ">
         {/* left */}
-
-        <TaskTable tasks={data?.last10Task} />
+        {data?.last10Task.length === 0 ? (
+          <>
+            <div className="text-center text-gray-500 text-lg w-full">
+              No tasks are available
+            </div>
+          </>
+        ) : (
+          <TaskTable tasks={data?.last10Task} />
+        )}
 
         {/* right */}
         {user.isAdmin ? <UserTable /> : ""}
