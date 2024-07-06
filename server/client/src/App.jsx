@@ -117,7 +117,13 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
       </Routes>
 
-      <Toaster richColours />
+      <Toaster
+        richColours
+        toastOptions={{
+          style: { background: "black" },
+          className: "p-4 text-white",
+        }}
+      />
     </main>
   );
 };

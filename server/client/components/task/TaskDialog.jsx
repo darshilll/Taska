@@ -78,12 +78,14 @@ const TaskDialog = ({ task }) => {
       label: "Edit",
       icon: (
         <MdOutlineEdit
-          className="mr-2 h-5 w-5 disabled:cursor-not-allowed"
+          disabled={!user.isAdmin}
+          className="mr-2 h-5 w-5 disabled:cursor-not-allowed disabled:text-gray-700"
           aria-hidden="true"
         />
       ),
       onClick: () => (user.isAdmin ? setOpenEdit(true) : setOpenEdit(false)),
     },
+
     {
       label: "Add Sub-Task",
       icon: <MdAdd className="mr-2 h-5 w-5" aria-hidden="true" />,

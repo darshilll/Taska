@@ -6,16 +6,12 @@ import { useParams } from "react-router-dom";
 import Loader from "../components/Loader";
 import Title from "../components/Title";
 import { IoMdAdd } from "react-icons/io";
-import Button from "../components/Button";
 import Tabs from "../components/Tabs";
 import TaskTitle from "../components/TaskTitle";
 import BoardView from "../components/BoardView";
 import Table from "../components/task/Table";
 import AddTask from "../components/task/AddTask";
-import {
-  useGetAllTasksQuery,
-  useGetDashboardStatsQuery,
-} from "../redux/slices/taskApiSlice";
+import { useGetAllTasksQuery } from "../redux/slices/taskApiSlice";
 import { useSelector } from "react-redux";
 
 const TABS = [
