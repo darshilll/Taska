@@ -1,4 +1,4 @@
-# Fullstack Task Manager (MERN)
+# 🗒️ taska
 
 
 
@@ -17,7 +17,7 @@ With the rise of remote work and dispersed teams, there is a growing need for to
 
 
 ### 
-## **Admin Features:**
+## **✨ Admin Features:**
 1. **User Management:**
     - Create admin accounts.
     - Add and manage team members.
@@ -39,7 +39,7 @@ With the rise of remote work and dispersed teams, there is a growing need for to
     - Permanently delete or trash tasks.
 
 
-## **User Features:**
+## **✨ User Features:**
 1. **Task Interaction:**
     - Change task status (in progress or completed).
     - View detailed task information.
@@ -48,7 +48,7 @@ With the rise of remote work and dispersed teams, there is a growing need for to
     - Add comments or chat to task activities.
 
 
-## **General Features:**
+## **✨ General Features:**
 1. **Authentication and Authorization:**
     - User login with secure authentication.
     - Role-based access control.
@@ -66,7 +66,7 @@ With the rise of remote work and dispersed teams, there is a growing need for to
 
 
 
-## **Technologies Used:**
+## **📦 Technologies:**
 - **Frontend:**
     - React (Vite)
     - Redux Toolkit for State Management
@@ -81,11 +81,9 @@ With the rise of remote work and dispersed teams, there is a growing need for to
     - MongoDB for efficient and scalable data storage.
 
 
-The Cloud-Based Task Manager is an innovative solution that brings efficiency and organization to task management within teams. By harnessing the power of the MERN stack and modern frontend technologies, the platform provides a seamless experience for both administrators and users, fostering collaboration and productivity.
-
 &nbsp;
 
-## SETUP INSTRUCTIONS
+##🚦Running the project
 
 
 # Server Setup
@@ -107,7 +105,7 @@ First, create the environment variables file `.env` in the server folder. The `.
 
 1. Open the project in any editor of choice.
 2. Navigate into the server directory `cd server`.
-3. Run `npm i` or `npm install` to install the packages.
+3. Run `npm run build` to install the packages.
 4. Run `npm start` to start the server.
 
 If configured correctly, you should see a message indicating that the server is running successfully and `Database Connected`.
@@ -125,6 +123,5 @@ First, create the environment variables file `.env` in the client folder. The `.
 ## Steps to run client
 
 1. Navigate into the client directory `cd client`.
-2. Run `npm i` or `npm install` to install the packages.
-3. Run `npm start` to run the app on `http://localhost:3000`.
+2. Run `npm run dev` to run the app on `http://localhost:3000`.
 4. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
