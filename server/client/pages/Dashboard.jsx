@@ -8,7 +8,7 @@ import {
   MdKeyboardArrowUp,
   MdKeyboardDoubleArrowUp,
 } from "react-icons/md";
-import { LuClipboardEdit } from "react-icons/lu";
+// import { LuClipboardEdit } from "react-icons/lu";
 import { FaNewspaper, FaUsers } from "react-icons/fa";
 import { FaArrowsToDot } from "react-icons/fa6";
 import moment from "moment";
@@ -191,7 +191,7 @@ const Dashboard = () => {
       _id: "3",
       label: "TASK IN PROGRESS ",
       total: data?.tasks["in progress"] || 0,
-      icon: <LuClipboardEdit size={23} />,
+      // icon: <LuClipboardEdit size={23} />,
       bg: "bg-[#be185d]",
     },
     {
